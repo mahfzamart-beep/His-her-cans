@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101124">
+<meta name="description" content="Catch the sweet stuff in the His & Her Cans arcade.">
+<title>Can-ny's Arcade — Cake Can Catcher</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Nunito:wght@500;600;700;800;900;1000&display=swap');
+:root{--bg:#101124;--bg2:#171832;--panel:#1c1e3c;--panel2:#252747;--ink:#f8f7ff;--muted:#a8a8c2;--lime:#d8ff63;--pink:#ff80b5;--purple:#a993ff;--orange:#ffb36b;--line:#ffffff17;--shadow:0 18px 55px #05061155}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:Nunito,system-ui,sans-serif;background:radial-gradient(ellipse at 15% -10%,#38315d 0,transparent 38%),radial-gradient(ellipse at 100% 20%,#352144 0,transparent 32%),var(--bg);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:24px 24px;mask-image:linear-gradient(to bottom,#000,transparent 75%)}
+button{font:inherit}
+.shell{width:min(1180px,100% - 32px);margin:auto;padding:20px 0 50px;position:relative}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:34px}
+.brand{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.14em;font-weight:1000}
+.brandmark{width:38px;height:38px;border-radius:13px;background:var(--lime);color:#17182b;display:grid;place-items:center;font-size:18px;box-shadow:0 5px 0 #90af3f;transform:rotate(-6deg)}
+.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:.2em;margin-top:2px}
+.nav-right{display:flex;align-items:center;gap:9px}
+.nav-chip{border:1px solid var(--line);background:#ffffff09;padding:9px 13px;border-radius:999px;color:#d6d4eb;font-size:11px;font-weight:900;letter-spacing:.06em}
+.nav-chip.hot{background:var(--lime);color:#17182b;border:0}
+.hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:24px}
+.kicker{display:inline-flex;align-items:center;gap:8px;color:var(--lime);font-size:10px;font-weight:1000;letter-spacing:.2em;text-transform:uppercase}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 5px #d8ff6320}
+h1{font-size:clamp(42px,7vw,78px);line-height:.86;letter-spacing:-.075em;margin:13px 0 13px;font-weight:1000;text-transform:uppercase}
+h1 .pink{color:var(--pink)}h1 .outline{color:transparent;-webkit-text-stroke:1.5px #f8f7ff}
+.hero-copy{color:var(--muted);font-size:14px;line-height:1.55;margin:0;max-width:520px}
+.hero-badge{flex:0 0 auto;background:linear-gradient(135deg,#292947,#1b1c37);border:1px solid var(--line);border-radius:20px;padding:14px 17px;box-shadow:var(--shadow);transform:rotate(2deg)}
+.hero-badge b{display:block;font-size:19px;color:var(--lime);letter-spacing:-.04em}
+.hero-badge span{font-size:9px;color:var(--muted);font-weight:1000;letter-spacing:.16em}
+.game-layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(275px,.8fr);gap:18px;align-items:start}
+.card{background:linear-gradient(145deg,#232541ee,#191a34f5);border:1px solid var(--line);border-radius:25px;box-shadow:var(--shadow)}
+.play-card{padding:17px}
+.hud{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:13px}
+.hud-box{min-width:0;background:#ffffff08;border:1px solid #ffffff0c;border-radius:16px;padding:10px 13px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.hud-box span{display:block;font-size:9px;letter-spacing:.16em;color:var(--muted);font-weight:1000;text-transform:uppercase}
+.hud-box b{display:block;font-family:"DM Mono",monospace;font-size:23px;line-height:1.2}
+.hud-icon{font-size:18px;opacity:.85}
+#arena{position:relative;height:470px;min-height:360px;overflow:hidden;border-radius:20px;border:1px solid #ffffff25;background:linear-gradient(180deg,#a8a0ff 0%,#c7b9ff 43%,#f6b2d4 100%);touch-action:none;isolation:isolate}
+#arena:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 18% 18%,#fff7 0 3%,transparent 3.5%),radial-gradient(ellipse at 78% 32%,#fff8 0 2%,transparent 2.5%),linear-gradient(115deg,transparent 25%,#ffffff14 25.2% 25.7%,transparent 26%);background-size:180px 160px,220px 190px,100% 100%}
+#arena:after{content:"";position:absolute;bottom:0;left:-5%;width:110%;height:72px;background:linear-gradient(180deg,#6b519d00,#4f3974aa);border-radius:50% 50% 0 0;z-index:-1}
+.arena-topline{position:absolute;top:14px;left:15px;right:15px;display:flex;justify-content:space-between;align-items:center;pointer-events:none}
+.arena-label{background:#221b43bb;color:#fff;border:1px solid #ffffff50;padding:7px 10px;border-radius:999px;font-size:9px;font-weight:1000;letter-spacing:.14em}
+.combo{background:var(--lime);color:#202139;padding:7px 10px;border-radius:999px;font-family:"DM Mono",monospace;font-size:10px;font-weight:900;opacity:0;transform:translateY(-5px);transition:.2s}
+.combo.show{opacity:1;transform:translateY(0)}
+.fall{position:absolute;top:-60px;z-index:2;font-size:37px;filter:drop-shadow(0 7px 4px #4b306044);user-select:none;will-change:transform}
+.basket{position:absolute;bottom:17px;left:50%;transform:translateX(-50%);font-size:54px;z-index:3;filter:drop-shadow(0 7px 3px #3b275555);user-select:none;line-height:1}
+.hint{position:absolute;bottom:6px;left:0;right:0;text-align:center;font-size:8px;color:#fff;font-weight:1000;letter-spacing:.2em;text-shadow:0 1px 5px #35244888}
+.controls{display:flex;gap:9px;align-items:center;justify-content:center;margin-top:13px}
+.btn{border:0;border-radius:14px;padding:13px 20px;background:var(--lime);color:#17182b;font-weight:1000;font-size:12px;letter-spacing:.04em;cursor:pointer;box-shadow:0 5px 0 #94ad44;transition:transform .12s,filter .12s;touch-action:manipulation}
+.btn:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #94ad44}
+.btn.secondary{background:#ffffff12;border:1px solid #ffffff1c;color:#f8f7ff;box-shadow:0 4px 0 #0e1024}
+.btn.arrow{width:49px;padding:12px 0;font-size:20px}
+.btn:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+.microcopy{text-align:center;color:#8586a6;font-size:9px;letter-spacing:.04em;margin:12px 0 1px}
+.sidebar{display:flex;flex-direction:column;gap:14px}
+.mascot-card{position:relative;overflow:hidden;padding:16px;background:linear-gradient(135deg,#342746,#23203d 60%,#282447);border-color:#ff80b52c}
+.mascot-card:after{content:"";position:absolute;width:180px;height:180px;right:-70px;top:-80px;border-radius:50%;background:#ff80b51b;filter:blur(3px)}
+.mascot-head{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1}
+.eyebrow{font-size:9px;color:var(--pink);font-weight:1000;letter-spacing:.18em;text-transform:uppercase}
+.mascot-tag{font-size:9px;color:var(--lime);font-weight:1000;border:1px solid #d8ff6340;border-radius:999px;padding:6px 8px}
+.mascot-stage{height:208px;display:grid;place-items:center;position:relative}
+.mascot-stage:before{content:"";position:absolute;width:165px;height:165px;border-radius:50%;background:radial-gradient(circle,#ff80b52e,transparent 70%);filter:blur(5px)}
+#canny{width:196px;height:204px;position:relative;z-index:1;filter:drop-shadow(0 13px 8px #09091666);animation:cannyFloat 3.2s ease-in-out infinite}
+@keyframes cannyFloat{0%,100%{transform:translateY(1px) rotate(-1deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+#canny .arm{transform-box:fill-box;transform-origin:center;animation:armWave 2s ease-in-out infinite}
+#canny .arm.right{animation-delay:.35s}
+@keyframes armWave{0%,100%{transform:rotate(0)}50%{transform:rotate(-9deg)}}
+#canny .tongue{transform-box:fill-box;transform-origin:top center;animation:lick 1.5s ease-in-out infinite}
+@keyframes lick{0%,100%{transform:scaleY(.78) rotate(-8deg)}50%{transform:scaleY(1.1) rotate(8deg)}}
+#canny.mood-win .tongue{opacity:0}
+#canny.mood-win{animation:happyHop .55s ease-in-out 2}
+@keyframes happyHop{50%{transform:translateY(-19px) rotate(8deg)}}
+#canny.mood-oops{animation:oops .4s ease-in-out 2}
+@keyframes oops{25%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}
+.mascot-bottom{position:relative;z-index:1}
+.mascot-name{display:flex;align-items:baseline;gap:8px;margin:0 0 8px}
+.mascot-name strong{font-size:24px;letter-spacing:-.06em}
+.mascot-name span{font-size:9px;color:#c0a5ff;font-weight:1000;letter-spacing:.14em}
+.bubble{position:relative;background:#fff;color:#28203a;border-radius:15px;padding:12px 14px;font-size:12px;font-weight:800;line-height:1.4;min-height:48px}
+.bubble:before{content:"";position:absolute;top:-7px;left:24px;border:8px solid transparent;border-bottom-color:#fff;border-top:0}
+.mini-card{padding:16px}
+.card-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+.card-head h2{font-size:12px;text-transform:uppercase;letter-spacing:.14em;margin:0;font-weight:1000}
+.card-head span{font-size:9px;color:var(--muted);font-weight:900}
+.mission{background:linear-gradient(115deg,#303553,#292541);border:1px solid #ffffff10;padding:13px;border-radius:16px}
+.mission-top{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.mission-title{font-size:14px;font-weight:1000}
+.mission-chip{font-size:8px;font-weight:1000;letter-spacing:.1em;color:#22213b;background:var(--pink);border-radius:999px;padding:5px 7px}
+.mission p{font-size:10px;color:var(--muted);margin:5px 0 11px}
+.progress{height:7px;background:#111329;border-radius:999px;overflow:hidden}
+.progress>i{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--pink),var(--lime));border-radius:999px;transition:width .25s}
+.progress-meta{display:flex;justify-content:space-between;color:#9293b0;font-family:"DM Mono",monospace;font-size:9px;margin-top:7px}
+.leader-list{display:flex;flex-direction:column;gap:7px}
+.leader{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:13px;background:#ffffff08}
+.medal{width:25px;height:25px;border-radius:9px;display:grid;place-items:center;font-size:13px;background:#ffffff0c}
+.leader:nth-child(1) .medal{background:#ffdf7a25}.leader:nth-child(2) .medal{background:#c9d5ed25}.leader:nth-child(3) .medal{background:#d78f6425}
+.leader-name{font-size:11px;font-weight:900;flex:1}.leader-score{font:10px "DM Mono",monospace;color:var(--lime)}
+.leader-foot{color:#8586a6;font-size:9px;line-height:1.4;margin:10px 0 0}
+.how{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.how-item{background:#ffffff08;border-radius:12px;padding:9px;font-size:10px;color:#c6c5db;font-weight:800;line-height:1.35}
+.how-item b{color:var(--lime);display:block;font-size:9px;letter-spacing:.1em;margin-bottom:3px}
+.disclaimer{margin:19px 2px 0;color:#727493;font-size:9px;line-height:1.55;text-align:center}
+.overlay{position:absolute;inset:0;background:#17142edb;backdrop-filter:blur(8px);display:none;place-items:center;z-index:6;padding:20px}
+.overlay.show{display:grid}
+.result{background:#222440;border:1px solid #ffffff2a;border-radius:23px;padding:25px;text-align:center;max-width:300px;width:100%;box-shadow:0 20px 60px #08081499}
+.result-icon{width:65px;height:65px;border-radius:22px;background:linear-gradient(135deg,var(--pink),var(--purple));display:grid;place-items:center;font-size:30px;margin:0 auto 13px;transform:rotate(-7deg)}
+.result h2{font-size:25px;letter-spacing:-.06em;margin:0 0 7px}
+.result p{color:#b9b8cf;font-size:11px;line-height:1.5;margin:0 0 13px}
+.result .btn{width:100%}
+@media(max-width:850px){.game-layout{grid-template-columns:1fr}.sidebar{display:grid;grid-template-columns:1fr 1fr}.mascot-card{grid-column:1/-1}.hero{align-items:flex-start}.mascot-stage{height:188px}}
+@media(max-width:560px){.shell{width:calc(100% - 20px);padding-top:13px}.nav{margin-bottom:25px}.brand{font-size:10px}.nav-chip{font-size:9px;padding:8px 10px}.hero{display:block;margin-bottom:19px}h1{font-size:clamp(44px,14vw,64px)}.hero-badge{display:inline-block;margin-top:17px}.play-card{padding:10px;border-radius:21px}.hud{gap:6px}.hud-box{padding:9px 8px;display:block;text-align:center}.hud-box b{font-size:20px}.hud-icon{display:none}#arena{height:420px;min-height:360px;border-radius:16px}.sidebar{grid-template-columns:1fr}.mascot-card{grid-column:auto}.mascot-stage{height:193px}.microcopy{font-size:8px}.controls{gap:7px}.btn{padding:12px 15px}.btn.arrow{width:45px}.card{border-radius:21px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+/* Responsive refinement: phone-first controls, tablet stacking, widescreen arcade */
+.shell{width:min(1320px,calc(100% - 40px));padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+.game-layout,.play-card,.sidebar,.card{min-width:0}
+@media(min-width:1200px){
+  .game-layout{grid-template-columns:minmax(0,1fr) 370px;gap:22px}
+  .play-card{padding:20px}
+  #arena{height:clamp(520px,66vh,720px);min-height:520px}
+  .mascot-stage{height:245px}
+  #canny{width:220px;height:230px}
+  .sidebar{gap:16px}
+}
+@media(min-width:861px) and (max-width:1199px){
+  .game-layout{grid-template-columns:minmax(0,1.25fr) minmax(290px,.75fr);gap:15px}
+  #arena{height:clamp(450px,60vh,620px)}
+}
+@media(max-width:860px){
+  .shell{width:min(760px,calc(100% - 28px));padding-top:16px}
+  .game-layout{grid-template-columns:minmax(0,1fr)}
+  .sidebar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .mascot-card{grid-column:1/-1}
+  .mascot-stage{height:205px}
+  .mini-card{padding:14px}
+  #arena{height:clamp(430px,58svh,580px)}
+}
+@media(max-width:600px){
+  body{min-width:0}
+  .shell{width:calc(100% - 22px);padding:calc(12px + env(safe-area-inset-top)) 0 calc(26px + env(safe-area-inset-bottom))}
+  .nav{gap:8px;margin-bottom:22px;align-items:center}
+  .brand{gap:8px;font-size:9px;letter-spacing:.11em}
+  .brandmark{width:34px;height:34px;border-radius:11px;font-size:16px}
+  .brand small{font-size:7px;letter-spacing:.17em}
+  .nav-right{gap:6px}
+  .nav-chip{font-size:8px;letter-spacing:.04em;padding:7px 9px;white-space:nowrap}
+  .hero{display:flex;align-items:flex-start;gap:8px;flex-direction:column;margin-bottom:17px}
+  .kicker{font-size:9px;letter-spacing:.16em}
+  h1{font-size:clamp(43px,13.5vw,68px);line-height:.88;margin:11px 0 9px}
+  .hero-copy{font-size:12px;line-height:1.45;max-width:38ch}
+  .hero-badge{margin:7px 0 0;padding:9px 12px;border-radius:13px;transform:rotate(1deg)}
+  .hero-badge b{font-size:15px}.hero-badge span{font-size:7px}
+  .game-layout{display:flex;flex-direction:column;gap:13px}
+  .play-card{width:100%;padding:10px;border-radius:19px}
+  .hud{gap:6px;margin-bottom:9px}
+  .hud-box{padding:8px 5px;min-height:55px;display:flex;justify-content:center;gap:5px;text-align:center}
+  .hud-box span{font-size:7px;letter-spacing:.12em}
+  .hud-box b{font-size:clamp(16px,5.2vw,21px)}
+  .hud-icon{display:none}
+  #arena{width:100%;height:clamp(390px,54svh,530px);min-height:390px;border-radius:15px}
+  .arena-topline{top:10px;left:9px;right:9px}
+  .arena-label{font-size:7px;padding:6px 8px;letter-spacing:.1em}
+  .combo{font-size:8px;padding:6px 8px}
+  .fall{font-size:clamp(30px,9vw,38px)}
+  .basket{font-size:49px;bottom:18px}
+  .hint{font-size:7px;letter-spacing:.12em;bottom:6px}
+  .controls{display:grid;grid-template-columns:58px minmax(0,1fr) 58px;gap:9px;margin-top:12px}
+  .btn{min-height:50px;padding:12px 10px;font-size:11px;border-radius:13px}
+  .btn.arrow{width:58px;height:52px;min-height:52px;padding:0;font-size:24px;touch-action:none;user-select:none;-webkit-user-select:none}
+  #start{width:100%;font-size:11px;letter-spacing:.08em}
+  .microcopy{font-size:7px;line-height:1.4;margin-top:10px}
+  .sidebar{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .mascot-card{grid-column:1/-1;padding:13px;border-radius:19px}
+  .mascot-head{gap:6px}.eyebrow{font-size:8px;letter-spacing:.13em}.mascot-tag{font-size:7px;padding:5px 7px}
+  .mascot-stage{height:174px}
+  #canny{width:168px;height:176px}
+  .mascot-name strong{font-size:21px}.mascot-name span{font-size:8px;letter-spacing:.1em}
+  .bubble{font-size:11px;min-height:44px;padding:10px 12px}
+  .mini-card{padding:12px;border-radius:16px}
+  .card-head{margin-bottom:9px;align-items:flex-start}
+  .card-head h2{font-size:9px;letter-spacing:.11em}
+  .card-head span{font-size:7px}
+  .mission{padding:10px;border-radius:13px}
+  .mission-title{font-size:11px}.mission-chip{font-size:7px;padding:4px 6px}
+  .mission p{font-size:9px;line-height:1.35}
+  .progress-meta{font-size:7px}
+  .leader{gap:6px;padding:7px 6px}.leader-name{font-size:9px}.leader-score{font-size:7px}.medal{width:22px;height:22px;font-size:11px}
+  .leader-foot{font-size:8px;line-height:1.35}
+  .how{grid-template-columns:1fr;gap:6px}.how-item{font-size:9px;padding:8px}.how-item b{font-size:8px}
+  .disclaimer{font-size:8px;line-height:1.45;margin-top:14px}
+  .result{max-width:min(290px,100%);padding:21px}
+}
+@media(max-width:380px){
+  .shell{width:calc(100% - 16px)}
+  .nav-chip:first-child{display:none}
+  .brand{font-size:8px}
+  .hero-copy{max-width:32ch}
+  .sidebar{grid-template-columns:1fr}
+  .mascot-card{grid-column:auto}
+  .mini-card{padding:13px}
+  #arena{height:410px}
+}
+@media(max-height:520px) and (orientation:landscape){
+  .shell{padding-top:10px}
+  .nav{margin-bottom:12px}
+  .hero{margin-bottom:12px}
+  h1{font-size:42px}
+  .game-layout{grid-template-columns:minmax(0,1fr) 260px}
+  .sidebar{display:flex}
+  .mascot-stage{height:130px}
+  #canny{width:125px;height:132px}
+  #arena{height:56svh;min-height:230px}
+  .mascot-card{grid-column:auto}
+}
+@media(prefers-reduced-motion:reduce){
+  #canny,#canny .arm,#canny .tongue{animation:none!important}
+}
+
+</style>
+</head>
+<body>
+<main class="shell">
+<header class="nav">
+  <div class="brand"><div class="brandmark">H+</div><div>HIS & HER CANS<small>THE SWEET SIDE QUEST</small></div></div>
+  <div class="nav-right"><span class="nav-chip">ARCADE / 001</span><span class="nav-chip hot">✦ PLAY TO EARN</span></div>
+</header>
+<section class="hero">
+  <div><div class="kicker"><i class="pulse"></i> CANNY'S ARCADE IS OPEN</div><h1>Catch the<br><span class="pink">sweet</span> <span class="outline">stuff.</span></h1><p class="hero-copy">Cake cans are falling. Can-ny is talking trash. Grab your basket and show this little menace who's boss.</p></div>
+  <div class="hero-badge"><b>30 SEC</b><span>ONE SWEET LITTLE CHAOS</span></div>
+</section>
+
+<div class="game-layout">
+  <section class="card play-card" aria-label="Cake Can Catcher game">
+    <div class="hud">
+      <div class="hud-box"><div><span>Score</span><b id="score">00</b></div><div class="hud-icon">✦</div></div>
+      <div class="hud-box"><div><span>Lives</span><b id="lives">♥ ♥ ♥</b></div><div class="hud-icon">♡</div></div>
+      <div class="hud-box"><div><span>Time left</span><b id="time">30</b></div><div class="hud-icon">◷</div></div>
+    </div>
+    <div id="arena">
+      <div class="arena-topline"><span class="arena-label">✦ SWEET CATCH ZONE</span><span class="combo" id="combo">NICE STREAK ×3</span></div>
+      <div id="basket" class="basket" aria-label="Your basket">🧺</div>
+      <div class="hint">DRAG TO MOVE &nbsp;·&nbsp; ARROW KEYS WORK TOO</div>
+      <div class="overlay" id="overlay"><div class="result"><div class="result-icon" id="resultIcon">✦</div><h2 id="resultTitle">That was sweet!</h2><p id="resultText">Your round is complete.</p><button class="btn" id="again">RUN IT BACK ↗</button></div></div>
+    </div>
+    <div class="controls"><button class="btn secondary arrow" id="left" aria-label="Move left">←</button><button class="btn" id="start">LET'S PLAY ↗</button><button class="btn secondary arrow" id="right" aria-label="Move right">→</button></div>
+    <p class="microcopy">PREVIEW MODE · YOUR SCORE IS NOT SAVED YET</p>
+  </section>
+
+  <aside class="sidebar">
+    <section class="card mascot-card">
+      <div class="mascot-head"><span class="eyebrow">YOUR LITTLE MENACE</span><span class="mascot-tag">✦ CHAOS LEVEL: 99</span></div>
+      <div class="mascot-stage">
+        <svg id="canny" viewBox="0 0 220 230" role="img" aria-label="Can-ny, a mischievous cartoon cake-can mascot">
+          <defs>
+            <linearGradient id="jar" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1d9"/><stop offset=".55" stop-color="#ffd7b0"/><stop offset="1" stop-color="#f49a9d"/></linearGradient>
+            <linearGradient id="frost" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb5cf"/><stop offset="1" stop-color="#ff75aa"/></linearGradient>
+            <linearGradient id="label" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b49cff"/><stop offset="1" stop-color="#7664dc"/></linearGradient>
+          </defs>
+          <ellipse cx="111" cy="216" rx="62" ry="8" fill="#090b1c" opacity=".3"/>
+          <g class="arm left"><path d="M59 122 Q33 118 24 145" fill="none" stroke="#f4bb9e" stroke-width="15" stroke-linecap="round"/><path d="M24 144 Q10 143 10 156 Q11 169 26 165 Q39 161 34 149" fill="#fff0d6" stroke="#aa796c" stroke-width="2"/></g>
+          <g class="arm right"><path d="M161 122 Q190 115 197 143" fill="none" stroke="#f4bb9e" stroke-width="15" stroke-linecap="round"/><path d="M197 142 Q211 136 216 150 Q218 163 203 166 Q190 165 190 153" fill="#fff0d6" stroke="#aa796c" stroke-width="2"/></g>
+          <path d="M82 192 L77 207 Q72 215 60 214 Q49 216 51 222 Q75 229 99 219 L103 194Z" fill="#8c78e8" stroke="#30254f" stroke-width="3"/>
+          <path d="M137 192 L143 207 Q149 215 160 213 Q173 214 171 222 Q148 230 124 219 L119 194Z" fill="#8c78e8" stroke="#30254f" stroke-width="3"/>
+          <path d="M52 82 Q54 59 76 58 L146 58 Q168 60 170 84 L163 185 Q160 201 143 202 L79 202 Q60 200 58 183Z" fill="url(#jar)" stroke="#6e4d69" stroke-width="4"/>
+          <path d="M66 79 Q71 68 84 70 L143 70 Q157 70 160 83 L157 96 Q148 107 138 97 Q126 87 114 99 Q101 110 89 98 Q77 89 68 102Z" fill="#fff1dc" opacity=".9"/>
+          <path d="M52 67 Q48 50 66 45 Q74 25 94 36 Q111 12 128 33 Q153 25 160 47 Q178 51 169 72 Q158 84 146 72 Q130 87 116 75 Q99 90 85 74 Q67 84 52 67Z" fill="url(#frost)" stroke="#6e4d69" stroke-width="4"/>
+          <path d="M76 59 Q82 47 90 52 Q98 61 105 51 Q115 40 124 53 Q133 63 143 53 Q153 49 159 64" fill="none" stroke="#ffe6ef" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="80" cy="46" r="4" fill="#fff2f4"/><circle cx="143" cy="43" r="5" fill="#fff2f4"/>
+          <rect x="71" y="117" width="80" height="52" rx="13" fill="url(#label)" stroke="#5e4caa" stroke-width="2"/>
+          <text x="111" y="137" text-anchor="middle" font-family="Nunito, sans-serif" font-size="9" font-weight="1000" fill="#fff">CAN-NY</text>
+          <path d="M91 151 Q111 141 131 151" fill="none" stroke="#e7e0ff" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="111" cy="158" r="3" fill="#d8ff63"/>
+          <path d="M84 94 Q94 83 105 94" fill="none" stroke="#53364c" stroke-width="4" stroke-linecap="round"/>
+          <path d="M119 94 Q131 83 141 94" fill="none" stroke="#53364c" stroke-width="4" stroke-linecap="round"/>
+          <ellipse cx="94" cy="104" rx="10" ry="12" fill="#fff"/><ellipse cx="130" cy="104" rx="10" ry="12" fill="#fff"/>
+          <ellipse class="pupil" cx="97" cy="106" rx="4.5" ry="6" fill="#30233d"/><ellipse class="pupil" cx="133" cy="106" rx="4.5" ry="6" fill="#30233d"/>
+          <circle cx="98" cy="103" r="1.8" fill="#fff"/><circle cx="134" cy="103" r="1.8" fill="#fff"/>
+          <path d="M103 122 Q112 128 122 120 Q126 117 130 123 Q126 143 110 141 Q97 138 103 122Z" fill="#512d4b" stroke="#512d4b" stroke-width="2"/>
+          <path class="tongue" d="M110 135 Q121 135 119 149 Q117 161 109 158 Q102 155 106 145Z" fill="#ff6a9b" stroke="#a83e74" stroke-width="2"/>
+          <path d="M112 149 Q114 152 113 156" stroke="#ffd2e3" stroke-width="2" stroke-linecap="round"/>
+          <path d="M63 110 Q47 116 56 126" fill="none" stroke="#fff5e7" stroke-width="4" opacity=".8" stroke-linecap="round"/>
+          <path d="M171 27 L177 38 L190 40 L180 49 L183 62 L171 55 L160 62 L162 49 L152 40 L165 38Z" fill="#d8ff63" stroke="#6d8740" stroke-width="2"/>
+          <path d="M37 83 L41 91 L50 92 L43 98 L45 107 L37 102 L29 107 L31 98 L24 92 L33 91Z" fill="#fff" opacity=".9"/>
+        </svg>
+      </div>
+      <div class="mascot-bottom"><div class="mascot-name"><strong>Can-ny</strong><span>PROFESSIONAL HATER</span></div><div class="bubble" id="speech">“Hehehe. Big basket, tiny skills? Let’s see.”</div></div>
+    </section>
+
+    <section class="card mini-card">
+      <div class="card-head"><h2>Daily side quest</h2><span>01 / TODAY</span></div>
+      <div class="mission"><div class="mission-top"><div class="mission-title">Catch 8 cake cans</div><div class="mission-chip">+XP</div></div><p>One round. Eight catches. Don't let Can-ny cook you.</p><div class="progress"><i id="missionBar"></i></div><div class="progress-meta"><span>YOUR PROGRESS</span><span id="missionCount">0 / 8</span></div></div>
+    </section>
+
+    <section class="card mini-card">
+      <div class="card-head"><h2>Can leaders</h2><span>TOP 3 PREVIEW</span></div>
+      <div class="leader-list">
+        <div class="leader"><div class="medal">🥇</div><div class="leader-name">Sweet Star</div><div class="leader-score">TOP 01</div></div>
+        <div class="leader"><div class="medal">🥈</div><div class="leader-name">Cake Ninja</div><div class="leader-score">TOP 02</div></div>
+        <div class="leader"><div class="medal">🥉</div><div class="leader-name">Can Hero</div><div class="leader-score">TOP 03</div></div>
+      </div>
+      <p class="leader-foot">Real rankings unlock when player accounts and the game database are connected.</p>
+    </section>
+
+    <section class="card mini-card">
+      <div class="card-head"><h2>Quick rules</h2><span>NO CAP</span></div>
+      <div class="how"><div class="how-item"><b>01 / CATCH</b>Slide your basket under the falling treats.</div><div class="how-item"><b>02 / DON'T MISS</b>Three lives. Every miss costs one.</div></div>
+    </section>
+  </aside>
+</div>
+<p class="disclaimer">GAME PREVIEW ONLY · Game scores, daily attempts, leaderboards, reward points and discount coupons are not connected to accounts yet. No points or discounts are being issued in this demo.</p>
+</main>
+<script>
+const arena=document.getElementById('arena'),basket=document.getElementById('basket'),scoreEl=document.getElementById('score'),livesEl=document.getElementById('lives'),timeEl=document.getElementById('time'),speech=document.getElementById('speech'),canny=document.getElementById('canny'),overlay=document.getElementById('overlay'),combo=document.getElementById('combo');
+let running=false,score=0,lives=3,time=30,x=50,items=[],spawn=0,raf=0,timer=null,caught=0,streak=0,lastTaunt=0;
+const taunts=['“That basket is giving decorative accessory. MOVE IT. 😭”','“HELLOOO? The cake is literally falling. 🍰”','“Oof. My grandma has better reflexes. Respectfully.”','“You had ONE job. One delicious job. 💀”','“Not the air-catch challenge… please.”','“Close! I almost felt bad. Almost. 😈”'];
+function say(s,mood='tease'){speech.textContent=s;canny.classList.remove('mood-win','mood-oops');if(mood==='win')canny.classList.add('mood-win');if(mood==='oops')canny.classList.add('mood-oops')}
+function update(){scoreEl.textContent=String(score).padStart(2,'0');livesEl.textContent='♥ '.repeat(lives).trim()+(lives<3?' ♡ '.repeat(3-lives):'');timeEl.textContent=String(time).padStart(2,'0');document.getElementById('missionBar').style.width=Math.min(100,caught/8*100)+'%';document.getElementById('missionCount').textContent=Math.min(caught,8)+' / 8'}
+function move(v){x=Math.max(7,Math.min(93,x+v));basket.style.left=x+'%'}
+function spawnCan(){const el=document.createElement('div');el.className='fall';el.textContent=Math.random()>.18?'🍰':'🧁';const px=5+Math.random()*88;el.style.left=px+'%';arena.appendChild(el);items.push({el,y:-52,x:px,speed:2.15+Math.random()*1.8})}
+function finish(win){if(!running)return;running=false;cancelAnimationFrame(raf);clearInterval(timer);combo.classList.remove('show');overlay.classList.add('show');document.getElementById('resultIcon').textContent=win?'🏆':'😂';document.getElementById('resultTitle').textContent=win?'OKAY, ICON BEHAVIOUR.':'CAN-NY WON THIS ROUND.';document.getElementById('resultText').textContent=win?'You caught '+caught+' treats. Can-ny is absolutely not impressed. (This is a demo score, not a reward credit.)':'You caught '+caught+' treats. Can-ny is already typing a roast. Run it back?';say(win?'“WAIT— YOU ATE THAT. I mean, caught that. 😳”':'“HAHA. Screenshotting this for the group chat. 🤣”',win?'win':'oops')}
+function frame(){if(!running)return;spawn++;if(spawn>42){spawnCan();spawn=0}const h=arena.clientHeight,w=arena.clientWidth,bx=x/100*w;items=items.filter(o=>{o.y+=o.speed;o.el.style.top=o.y+'px';if(o.y>h-100&&o.y<h-28&&Math.abs(o.x/100*w-bx)<58){o.el.remove();score++;caught++;streak++;update();if(streak>=3){combo.textContent='NICE STREAK ×'+streak;combo.classList.add('show');say('“Okayyy, look at you. One lucky streak. 😏”')}else if(caught===1)say('“Beginner’s luck. Don’t get confident.”');return false}if(o.y>h-36){o.el.remove();lives--;streak=0;combo.classList.remove('show');update();say(taunts[Math.floor(Math.random()*taunts.length)],'oops');if(lives<=0){finish(false)}return false}return true});if(running)raf=requestAnimationFrame(frame)}
+function start(){if(running)return;items.forEach(o=>o.el.remove());items=[];score=0;lives=3;time=30;caught=0;streak=0;spawn=0;x=50;basket.style.left='50%';update();overlay.classList.remove('show');combo.classList.remove('show');running=true;say('“Hehehe. Big basket, tiny skills? Let’s see.”');raf=requestAnimationFrame(frame);timer=setInterval(()=>{if(!running)return;time--;update();if(time===20)say('“20 seconds left. Is that sweat? 😈”');if(time===10)say('“TEN SECONDS. PANIC LOOKS GOOD ON YOU.”','oops');if(time<=0)finish(caught>=8)},1000)}
+document.getElementById('start').onclick=start;document.getElementById('again').onclick=start;
+function bindHold(id,direction){const el=document.getElementById(id);let hold=null;const stop=()=>{if(hold!==null){clearInterval(hold);hold=null}};el.addEventListener('pointerdown',e=>{e.preventDefault();stop();move(direction*8);hold=setInterval(()=>move(direction*8),85);el.setPointerCapture?.(e.pointerId)});['pointerup','pointercancel','lostpointercapture','mouseleave'].forEach(name=>el.addEventListener(name,stop));window.addEventListener('blur',stop)}
+bindHold('left',-1);bindHold('right',1);
+document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();move(-5)}if(e.key==='ArrowRight'){e.preventDefault();move(5)}if((e.key===' '||e.key==='Enter')&&!running&&document.activeElement.tagName!=='BUTTON'){e.preventDefault();start()}});
+arena.addEventListener('pointerdown',e=>{if(e.pointerType==='touch')arena.setPointerCapture?.(e.pointerId);const r=arena.getBoundingClientRect();x=Math.max(5,Math.min(95,(e.clientX-r.left)/r.width*100));basket.style.left=x+'%'});
+arena.addEventListener('pointermove',e=>{if(e.buttons||e.pointerType==='touch'){const r=arena.getBoundingClientRect();x=Math.max(5,Math.min(95,(e.clientX-r.left)/r.width*100));basket.style.left=x+'%'}});
+update();
+window.addEventListener('load',()=>{const send=()=>parent.postMessage({type:'canny-game-height',height:document.documentElement.scrollHeight},'*');send();if('ResizeObserver'in window)new ResizeObserver(send).observe(document.body);setTimeout(send,400);setTimeout(send,1400)});
+</script>
+</body>
+</html>
