@@ -32,7 +32,40 @@
 <script src="/site-parts-v2/part-20.js"></script>
 <script>
 document.open();
-document.write(window.CM_PAGE_PARTS.join(""));
+const page=window.CM_PAGE_PARTS.join("");
+const desktopFixes=`
+<style id="cloud-momos-desktop-refinements">
+/* Desktop refinements — preserve the supplied artwork and palette. */
+@media (min-width:901px) and (max-width:1240px){
+  .ready-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .product-card{min-height:250px;padding:12px}
+  .product-card .photo{height:158px}
+  .product-name{font-size:15px}
+}
+@media (min-width:1241px) and (max-width:1500px){
+  .ready-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+  .product-card{min-height:242px}
+  .product-card .photo{height:150px}
+}
+@media (min-width:1501px){
+  .ready-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+  .product-card .photo{height:145px}
+}
+@media (min-width:901px){
+  .menu-area,.frozen-wrap{padding-left:clamp(28px,4vw,72px);padding-right:clamp(28px,4vw,72px)}
+  .frozen-grid{margin-inline:auto}
+  .hero-cta-hit{top:80.5%;height:13%;min-height:38px}
+  .header-hit{cursor:pointer}
+  .product-card:hover,.frozen-card:hover{box-shadow:0 10px 24px rgba(23,59,37,.08)}
+  .cart-drawer{max-width:440px}
+}
+#cartCount{display:inline-grid;place-items:center;min-width:26px;height:26px;padding:0 7px;border-radius:99px;background:var(--orange);color:#fff;font-size:13px;vertical-align:middle}
+</style>
+`;
+const patched=page.replace("</style>",desktopFixes+"</style>");
+document.open();
+document.write(patched);
+document.close();
 document.close();
 </script>
 </body>
