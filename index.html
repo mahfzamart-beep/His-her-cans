@@ -60,12 +60,204 @@ const desktopFixes=`
   .cart-drawer{max-width:440px}
 }
 #cartCount{display:inline-grid;place-items:center;min-width:26px;height:26px;padding:0 7px;border-radius:99px;background:var(--orange);color:#fff;font-size:13px;vertical-align:middle}
-</style>
-`;
-const patched=page.replace("</style>",desktopFixes+"</style>");
-document.open();
-document.write(patched);
-document.close();
+</style>`;
+const demoPriceCss=`
+<style id="cloud-momos-demo-order-styles">
+.demo-price{display:block;width:max-content;max-width:100%;margin:5px auto 5px;padding:4px 10px;border-radius:999px;border:1px solid #f2d6ad;background:#fff4e2;color:#a94d09;font-size:11px;font-weight:900;line-height:1.25;white-space:nowrap}
+.frozen-card .demo-price{margin:0 10px 5px;font-size:11px}
+.demo-price-note{margin:0 auto 12px;text-align:center;color:#8b5b2d;font-size:11px;font-weight:900;letter-spacing:.07em}
+.cm-cost-line{display:flex;justify-content:space-between;gap:14px;margin:8px 0;color:#52624f;font-size:13px}
+.cm-cost-line strong{color:var(--green);font-weight:900}
+.cm-cost-grand{display:flex;justify-content:space-between;gap:14px;padding-top:12px;margin-top:10px;border-top:1px solid var(--line);color:var(--green);font-size:17px;font-weight:900}
+.cm-cod-note{margin:12px 0 7px;padding:10px 12px;border-radius:13px;background:#edf3e9;color:#23472c;font-size:12px;font-weight:800;line-height:1.5}
+.cm-demo-disclaimer{font-size:11px!important;line-height:1.45;color:#877a63!important}
+#cmCheckout{width:100%;margin-top:9px;padding:13px 16px;border:0;border-radius:999px;background:var(--orange);color:#fff;font-weight:900}
+#cmCheckout:disabled{opacity:.45;cursor:not-allowed}
+.cm-cart-info{min-width:0;flex:1}
+.cm-cart-info strong{display:block;color:var(--green);font-size:13px;line-height:1.25}
+.cm-cart-info small{display:block;margin-top:4px;color:#7b806e;font-size:11px;font-weight:800}
+#cmCheckoutDialog{width:min(570px,calc(100vw - 28px));max-height:calc(100dvh - 28px);overflow:auto;border:1px solid #ead8b8;border-radius:24px;background:#fff9ed;padding:25px;color:var(--ink);box-shadow:0 22px 70px #102f1d55}
+#cmCheckoutDialog::backdrop{background:#07180f99}
+.cm-dialog-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:7px}
+.cm-dialog-head h2{margin:0;color:var(--green);font-size:25px;font-weight:900}
+.cm-dialog-close{width:36px;height:36px;border:0;border-radius:50%;background:#f1e1c8;color:var(--green);font-size:22px}
+.cm-checkout-intro{margin:0 0 18px;color:#777866;font-size:13px;line-height:1.5}
+.cm-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cm-field{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.cm-field.full{grid-column:1/-1}
+.cm-field label{font-size:12px;font-weight:900;color:var(--green)}
+.cm-field input,.cm-field textarea{width:100%;border:1px solid #e4d4b8;border-radius:12px;padding:12px;background:#fffdf8;color:var(--ink);font:inherit;font-size:14px}
+.cm-field textarea{min-height:75px;resize:vertical}
+.cm-payment{padding:13px 15px;border:1px solid #cbdcc5;border-radius:14px;background:#edf3e9;color:#21452a;font-size:13px;font-weight:900}
+.cm-payment small{display:block;margin-top:4px;color:#657361;font-size:11px;font-weight:700}
+.cm-order-summary{margin:15px 0;padding:14px;border-radius:14px;background:#f7efdf}
+.cm-order-summary div{display:flex;justify-content:space-between;gap:12px;margin:5px 0;font-size:13px}
+.cm-order-summary .cm-grand{padding-top:9px;margin-top:9px;border-top:1px solid #e7d8bc;color:var(--green);font-size:17px;font-weight:900}
+.cm-place-order{width:100%;padding:14px 16px;border:0;border-radius:999px;background:var(--green);color:#fff8ea;font-weight:900}
+.cm-cancel-order{display:block;margin:10px auto 0;padding:7px 14px;border:0;background:transparent;color:#777866;font-size:12px;font-weight:800}
+.cm-success{padding:18px 5px 3px;text-align:center}
+.cm-success-mark{display:grid;place-items:center;width:56px;height:56px;margin:0 auto 12px;border-radius:50%;background:#e6f0e1;color:#24552f;font-size:29px}
+.cm-success h3{margin:0 0 8px;color:var(--green);font-size:23px}
+.cm-success p{color:#6b7564;font-size:13px;line-height:1.5}
+.cm-success .cm-demo-ref{padding:10px;border-radius:12px;background:#f7efdf;color:var(--green);font-weight:900}
+.cm-success button{margin-top:10px;padding:12px 25px;border:0;border-radius:999px;background:var(--orange);color:white;font-weight:900}
+@media(max-width:520px){#cmCheckoutDialog{padding:19px}.cm-form-grid{grid-template-columns:1fr}.cm-field.full{grid-column:auto}}
+</style>`;
+const demoOrderUi=`
+<script id="cloud-momos-demo-order">
+(function(){
+  const prices={
+    "Chicken Momo Dumplings":150,
+    "Chicken Momo Balls":150,
+    "Veg Momo Dumplings":120,
+    "Veg Momo Balls":120,
+    "Fried Momo Dumplings (Veg & Chicken)":160,
+    "Fried Momo Balls (Veg & Chicken)":160,
+    "Frozen Chicken Momo Dumplings":240,
+    "Frozen Chicken Momo Balls":240,
+    "Frozen Veg Momo Dumplings":200,
+    "Frozen Veg Momo Balls":200
+  };
+  const deliveryFee=60;
+  let demoOrderNumber=0;
+  const money=function(v){return "৳"+Number(v||0).toLocaleString("en-BD")};
+  const cards=document.querySelectorAll("#readyGrid .product-card,#frozenGrid .frozen-card");
+  cards.forEach(function(card){
+    const name=card.getAttribute("data-product-name");
+    const productName=Object.keys(prices).find(function(k){return k.toLowerCase()===name;});
+    if(!productName)return;
+    card.dataset.demoPrice=prices[productName];
+    const price=document.createElement("span");
+    price.className="demo-price";
+    price.textContent="Demo price · "+money(prices[productName]);
+    const insertBefore=card.querySelector(".product-underline")||card.querySelector(".arrow-add");
+    card.insertBefore(price,insertBefore);
+  });
+  document.querySelectorAll(".menu-area .section-title,.frozen-wrap .section-title").forEach(function(title){
+    const note=document.createElement("p");
+    note.className="demo-price-note";
+    note.textContent="SAMPLE PRICES · DEMO ONLY · FINAL RATES TO BE CONFIRMED";
+    title.insertAdjacentElement("afterend",note);
+  });
+  const cartBottom=document.querySelector(".cart-bottom");
+  cartBottom.innerHTML=
+    '<div class="cm-cost-line"><span>Items</span><strong id="cmCartItems">0</strong></div>'+
+    '<div class="cm-cost-line"><span>Subtotal</span><strong id="cmSubtotal">৳0</strong></div>'+
+    '<div class="cm-cost-line"><span>Delivery charge (demo)</span><strong id="cmDelivery">৳0</strong></div>'+
+    '<div class="cm-cost-grand"><span>Total</span><strong id="cmGrandTotal">৳0</strong></div>'+
+    '<div class="cm-cod-note">Payment method: CASH ON DELIVERY ONLY. Pay in cash when your order is delivered.</div>'+
+    '<button type="button" id="cmCheckout" disabled>Proceed to Checkout →</button>'+
+    '<p class="cm-demo-disclaimer">Demo checkout only. Sample product prices and delivery charge are not final. No real order or payment will be submitted.</p>'+
+    '<span id="cartTotal" hidden>0</span>';
+  const checkoutDialog=document.createElement("dialog");
+  checkoutDialog.id="cmCheckoutDialog";
+  checkoutDialog.innerHTML=
+    '<div id="cmCheckoutFormWrap">'+
+      '<div class="cm-dialog-head"><h2>Complete Your Order</h2><button type="button" class="cm-dialog-close" id="cmCheckoutClose" aria-label="Close">×</button></div>'+
+      '<p class="cm-checkout-intro">Try the Cloud Momos demo checkout. Delivery is shown for Sylhet City only.</p>'+
+      '<form id="cmCheckoutForm">'+
+        '<div class="cm-form-grid">'+
+          '<div class="cm-field"><label for="cmCustomerName">Full name *</label><input id="cmCustomerName" name="customerName" autocomplete="name" required placeholder="Your name"></div>'+
+          '<div class="cm-field"><label for="cmCustomerPhone">Phone number *</label><input id="cmCustomerPhone" name="phone" type="tel" autocomplete="tel" required placeholder="01XXXXXXXXX"></div>'+
+          '<div class="cm-field full"><label for="cmCustomerAddress">Full delivery address *</label><textarea id="cmCustomerAddress" name="address" autocomplete="street-address" required placeholder="House, road, area, landmark"></textarea></div>'+
+          '<div class="cm-field full"><label for="cmCustomerArea">Area in Sylhet City *</label><input id="cmCustomerArea" name="area" required placeholder="e.g. Zindabazar"></div>'+
+          '<div class="cm-field full"><label for="cmCustomerNote">Delivery note (optional)</label><input id="cmCustomerNote" name="note" placeholder="Any directions for the rider"></div>'+
+        '</div>'+
+        '<div class="cm-payment">✓ Cash on Delivery (COD) <small>Only payment option in this demo. No online payment is available.</small></div>'+
+        '<div class="cm-order-summary">'+
+          '<div><span>Subtotal</span><strong id="cmCheckoutSubtotal">৳0</strong></div>'+
+          '<div><span>Delivery (demo)</span><strong id="cmCheckoutDelivery">৳0</strong></div>'+
+          '<div class="cm-grand"><span>Pay on delivery</span><strong id="cmCheckoutTotal">৳0</strong></div>'+
+        '</div>'+
+        '<button class="cm-place-order" type="submit">Place Demo Order · COD</button>'+
+        '<button class="cm-cancel-order" type="button" id="cmCheckoutCancel">Go back to cart</button>'+
+      '</form>'+
+    '</div>'+
+    '<div class="cm-success" id="cmOrderSuccess" hidden>'+
+      '<div class="cm-success-mark">✓</div><h3>Demo order placed!</h3>'+
+      '<p>Thank you, <strong id="cmThanksName"></strong>. This is a sample confirmation only.</p>'+
+      '<div class="cm-demo-ref" id="cmDemoOrderRef"></div>'+
+      '<p id="cmDemoItems"></p><p id="cmDemoTotal"></p>'+
+      '<p><strong>Payment:</strong> Cash on Delivery only.</p>'+
+      '<p>No real order was sent or saved. Final products, prices and delivery charges must be confirmed before launch.</p>'+
+      '<button type="button" id="cmDemoDone">Done</button>'+
+    '</div>';
+  document.body.appendChild(checkoutDialog);
+  function getTotals(){
+    const count=cart.reduce(function(n,p){return n+p.qty;},0);
+    const subtotal=cart.reduce(function(sum,p){return sum+(prices[p.name]||0)*p.qty;},0);
+    const delivery=count?deliveryFee:0;
+    return {count:count,subtotal:subtotal,delivery:delivery,total:subtotal+delivery};
+  }
+  function refreshCart(){
+    const totals=getTotals();
+    document.getElementById("cmCartItems").textContent=String(totals.count);
+    document.getElementById("cmSubtotal").textContent=money(totals.subtotal);
+    document.getElementById("cmDelivery").textContent=money(totals.delivery);
+    document.getElementById("cmGrandTotal").textContent=money(totals.total);
+    document.getElementById("cmCheckout").disabled=!totals.count;
+    document.querySelectorAll(".cart-row").forEach(function(row,index){
+      const item=cart[index];if(!item)return;
+      const old=row.querySelector("strong");if(old)old.remove();
+      const qty=row.querySelector(".qty");
+      const info=document.createElement("div");info.className="cm-cart-info";
+      const title=document.createElement("strong");title.textContent=item.name;
+      const line=document.createElement("small");
+      const unit=prices[item.name]||0;
+      line.textContent=item.qty+" × "+money(unit)+" = "+money(unit*item.qty);
+      info.appendChild(title);info.appendChild(line);
+      row.insertBefore(info,qty);
+    });
+    if(checkoutDialog.open)refreshCheckoutTotals();
+  }
+  function refreshCheckoutTotals(){
+    const t=getTotals();
+    document.getElementById("cmCheckoutSubtotal").textContent=money(t.subtotal);
+    document.getElementById("cmCheckoutDelivery").textContent=money(t.delivery);
+    document.getElementById("cmCheckoutTotal").textContent=money(t.total);
+  }
+  document.addEventListener("click",function(e){
+    if(e.target.closest("[data-add]")||e.target.closest("[data-qty]"))refreshCart();
+  });
+  document.getElementById("cmCheckout").addEventListener("click",function(){
+    if(!cart.length)return;
+    refreshCheckoutTotals();
+    checkoutDialog.showModal();
+  });
+  function closeCheckout(){checkoutDialog.close();}
+  document.getElementById("cmCheckoutClose").addEventListener("click",closeCheckout);
+  document.getElementById("cmCheckoutCancel").addEventListener("click",closeCheckout);
+  document.getElementById("cmCheckoutForm").addEventListener("submit",function(e){
+    e.preventDefault();
+    const form=e.currentTarget;
+    if(!form.reportValidity())return;
+    const t=getTotals();
+    if(!t.count)return;
+    demoOrderNumber++;
+    document.getElementById("cmCheckoutFormWrap").hidden=true;
+    document.getElementById("cmOrderSuccess").hidden=false;
+    document.getElementById("cmThanksName").textContent=form.elements.customerName.value.trim();
+    document.getElementById("cmDemoOrderRef").textContent="Demo reference: CM-DEMO-"+String(demoOrderNumber).padStart(4,"0");
+    document.getElementById("cmDemoItems").textContent=cart.map(function(p){return p.name+" × "+p.qty;}).join(" · ");
+    document.getElementById("cmDemoTotal").textContent="Demo total: "+money(t.total);
+  });
+  document.getElementById("cmDemoDone").addEventListener("click",function(){
+    checkoutDialog.close();
+    document.getElementById("cmCheckoutForm").reset();
+    document.getElementById("cmCheckoutFormWrap").hidden=false;
+    document.getElementById("cmOrderSuccess").hidden=true;
+    cart.length=0;
+    renderCart();
+    refreshCart();
+    closeCart();
+  });
+  checkoutDialog.addEventListener("click",function(e){if(e.target===checkoutDialog)closeCheckout();});
+  refreshCart();
+})();
+<\/script>`;
+const headInjected=page.replace("</head>",desktopFixes+demoPriceCss+"</head>");
+const withDemo=headInjected.replace("</body>",demoOrderUi+"</body>");
+document.write(withDemo);document.close();
 document.close();
 </script>
 </body>
