@@ -1,49 +1,141 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f8efe3"><title>Cake Can Catcher | His & Her Cans</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#153a25">
+<title>Cloud Momos — Little clouds. Big comfort.</title>
+<meta name="description" content="Cloud Momos — freshly cooked and frozen momo favourites in Sylhet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--cream:#fbf3e8;--ink:#35251f;--pink:#ef9ca9;--red:#c94f5d;--gold:#f2c56b;--brown:#765044;--mint:#b9d8c5}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 0%,#fff9ef 0,#f8efe3 45%,#f3e5d9 100%);color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif}
-main{max-width:1050px;margin:auto;padding:22px 16px 40px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-size:13px;font-weight:900;letter-spacing:.16em;color:#9c655b}.pill{border:1px solid #ead8c9;border-radius:999px;padding:8px 12px;background:#fff9f2;font-size:12px;font-weight:800}
-h1{font-size:clamp(30px,6vw,54px);line-height:.98;margin:20px 0 8px;letter-spacing:-.05em}.sub{color:#806c60;margin:0 0 20px}.layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(240px,.8fr);gap:18px}.panel{background:#fffaf4;border:1px solid #efdfd0;border-radius:26px;padding:16px;box-shadow:0 12px 35px #6c3d1710}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:12px}.stat{background:#f9eee3;border-radius:16px;padding:10px;text-align:center}.stat b{display:block;font-size:23px}.stat span{font-size:11px;color:#8c7568;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
-#arena{height:430px;max-height:62vh;min-height:330px;position:relative;overflow:hidden;border-radius:21px;background:linear-gradient(180deg,#fce9e5,#fff2d8 68%,#e8d3b8);border:1px solid #f1d8c7;touch-action:none}
-#arena:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%,#fff9 0 2px,transparent 3px),radial-gradient(circle at 80% 30%,#fff9 0 3px,transparent 4px);background-size:80px 80px;opacity:.7}
-.fall{position:absolute;top:-55px;font-size:37px;filter:drop-shadow(0 5px 3px #6b3b2425);z-index:2}.basket{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);font-size:48px;z-index:3;filter:drop-shadow(0 5px 2px #57351c33);user-select:none}
-.hint{position:absolute;bottom:5px;left:0;right:0;text-align:center;font-size:10px;color:#9c7d6d;font-weight:800;letter-spacing:.08em}
-.controls{display:flex;gap:10px;align-items:center;justify-content:center;margin-top:12px}.btn{border:0;border-radius:14px;padding:12px 18px;background:var(--red);color:white;font-weight:900;cursor:pointer;box-shadow:0 5px 0 #9d3c49}.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #9d3c49}.btn.secondary{background:#fff1e5;color:#79574a;box-shadow:0 4px 0 #e5cbbb}.arrow{width:58px;height:46px;font-size:20px;background:#fff8f0;color:#78564a;box-shadow:0 4px 0 #e5cbbb}.side{display:flex;flex-direction:column;gap:14px}.mascotbox{display:flex;gap:12px;align-items:center;background:linear-gradient(135deg,#fff0e8,#f9e3e5);border-radius:20px;padding:14px}.mascot{width:82px;height:82px;flex:0 0 82px;border-radius:25px;background:#f6c2bd;display:grid;place-items:center;font-size:51px;position:relative;animation:bob 2.3s ease-in-out infinite;box-shadow:inset 0 -7px 0 #d98d8c}.mascot:after{content:"👅";position:absolute;font-size:19px;right:5px;bottom:9px;transform:rotate(-15deg)}@keyframes bob{50%{transform:translateY(-5px) rotate(2deg)}}.mascotbox strong{display:block;margin-bottom:5px}.speech{font-size:13px;line-height:1.4;color:#75564d}.sectionTitle{font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:#9c7465;font-weight:900;margin:0 0 9px}.challenge{background:#f7f0df;border-radius:18px;padding:14px}.challenge b{font-size:20px}.challenge p{font-size:12px;color:#826f5b;margin:5px 0 0}.leaderrow{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f0e5da;font-size:13px}.leaderrow:last-child{border:0}.demo{font-size:11px;color:#9a8171;text-align:center;margin-top:12px}.overlay{position:absolute;inset:0;background:#49332dcc;display:none;place-items:center;z-index:5;padding:20px}.overlay.show{display:grid}.result{background:#fffaf4;border-radius:22px;padding:24px;text-align:center;max-width:290px;width:100%;box-shadow:0 15px 45px #2a160d55}.result h2{margin:0 0 7px}.result p{color:#806c60;font-size:13px}.result .btn{margin-top:8px}
-@media(max-width:760px){.layout{grid-template-columns:1fr}.side{display:grid;grid-template-columns:1fr 1fr}.mascotbox{grid-column:1/-1}#arena{height:390px}.top{align-items:flex-start}}@media(max-width:430px){.side{grid-template-columns:1fr}.stats{gap:6px}.stat b{font-size:20px}.panel{padding:11px}}
-</style></head>
-<body><main>
-<div class="top"><div class="brand">HIS & HER CANS · PLAY ZONE</div><div class="pill">🍰 SWEET REWARDS</div></div>
-<h1>Cake Can<br><span style="color:#c85c68">Catcher!</span></h1><p class="sub">Catch the cans. Outsmart the troublemaker. Earn sweet rewards.</p>
-<div class="layout">
-<section class="panel">
-<div class="stats"><div class="stat"><b id="score">0</b><span>Score</span></div><div class="stat"><b id="lives">3</b><span>Lives</span></div><div class="stat"><b id="time">30</b><span>Seconds</span></div></div>
-<div id="arena"><div id="basket" class="basket">🧺</div><div class="hint">MOVE WITH ← → OR DRAG YOUR BASKET</div><div class="overlay" id="overlay"><div class="result"><div id="resultEmoji" style="font-size:45px">🎉</div><h2 id="resultTitle">Sweet run!</h2><p id="resultText">Your demo round is complete.</p><button class="btn" id="again">Play again</button></div></div></div>
-<div class="controls"><button class="btn secondary arrow" id="left" aria-label="Move left">←</button><button class="btn" id="start">Start game</button><button class="btn secondary arrow" id="right" aria-label="Move right">→</button></div>
-<div class="demo">Preview build · scores and daily chances are not yet saved to an account</div>
-</section>
-<aside class="side">
-<div class="mascotbox"><div class="mascot" id="mascot">🤡</div><div><strong>Meet Can-ny 😈</strong><div class="speech" id="speech">“Hehehe… think you can catch them all? Prove it!”</div></div></div>
-<div class="panel"><p class="sectionTitle">Today's mischief</p><div class="challenge"><b>Catch 8 cans</b><p>Daily challenge preview · Catch at least 8 cake cans in one round.</p></div></div>
-<div class="panel"><p class="sectionTitle">Can Leaders · Top 3</p><div class="leaderrow"><span>🥇 Sweet Star</span><b>—</b></div><div class="leaderrow"><span>🥈 Cake Ninja</span><b>—</b></div><div class="leaderrow"><span>🥉 Can Hero</span><b>—</b></div><p class="demo">Leaderboard unlocks when accounts are connected.</p></div>
-<div class="panel"><p class="sectionTitle">How to play</p><div class="speech">🍰 Catch falling cake cans to score.<br>💥 Miss one and lose a life.<br>😜 Ignore Can-ny's teasing and focus!</div></div>
-</aside></div></main>
+:root{--green:#173b25;--green-deep:#102f1d;--cream:#fdefd8;--orange:#ed7108;--ink:#183622;--line:#f0dfc3;--white:#fff8ea;--muted:#6e715c}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Nunito,Arial,sans-serif}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}img{display:block;max-width:100%}
+/* Desktop masthead and hero use clean crops from the supplied master reference. */
+.desktop-header{height:auto;aspect-ratio:1468/93;max-height:93px;min-height:64px;position:relative;background:var(--cm-asset01) center/100% 100% no-repeat;z-index:5}
+.header-hit{position:absolute;top:0;height:100%;display:block;background:transparent}
+.header-hit.home{left:28.7%;width:7%}.header-hit.menu{left:37.8%;width:9.5%}.header-hit.about{left:48.2%;width:5.2%}.header-hit.reviews{left:55.2%;width:6%}.header-hit.faq{left:63.5%;width:4%}.header-hit.search{left:81.5%;width:3.5%}.header-hit.cart{left:85.6%;width:3.2%}.header-hit.account{left:90%;width:3.5%}
+.desktop-hero{position:relative;width:100%;aspect-ratio:1468/478;background:var(--cm-asset02) center/100% 100% no-repeat;overflow:hidden}
+.hero-cta-hit{position:absolute;left:18%;top:64%;width:18%;height:14%;border-radius:50px;background:transparent}
+.promo-row{display:grid;grid-template-columns:1fr 1fr;gap:15px;padding:10px 4% 0}
+.promo-card{display:block;width:100%;aspect-ratio:665/244;background-size:100% 100%;background-repeat:no-repeat;border-radius:28px;overflow:hidden;transition:transform .18s ease}
+.promo-card:hover{transform:translateY(-2px)}.promo-card.ready{background-image:var(--cm-asset03)}.promo-card.frozen{background-image:var(--cm-asset04)}
+.menu-area{padding:20px 4% 0}
+.section-title{display:flex;align-items:center;justify-content:center;gap:22px;margin:0 0 12px;color:#17432b;font-size:clamp(30px,3vw,44px);font-weight:900;line-height:1.05;letter-spacing:-1.4px}
+.section-title:before,.section-title:after{content:"";width:54px;height:11px;border-top:3px solid var(--orange);border-radius:50%;transform:translateY(5px)}
+.ready-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.product-card{position:relative;display:flex;flex-direction:column;min-width:0;border:2px solid #f2e1c5;border-radius:25px;background:rgba(255,249,237,.54);padding:9px 9px 12px;overflow:hidden;transition:transform .18s ease,border-color .18s ease;min-height:222px}
+.product-card:hover{transform:translateY(-3px);border-color:#eacb9e}
+.product-card .photo{width:100%;height:126px;object-fit:contain;mix-blend-mode:multiply}
+.product-name{font-size:clamp(12px,.97vw,15px);font-weight:900;line-height:1.2;color:#1d2e20;text-align:center;padding:2px 15px 0;min-height:43px;display:flex;align-items:center;justify-content:center}
+.product-underline{width:35px;height:5px;border-top:3px solid var(--orange);border-radius:50%;margin:1px auto 0;transform:rotate(-5deg)}
+.arrow-add{position:absolute;right:11px;bottom:10px;width:27px;height:27px;border:0;border-radius:50%;background:var(--green);color:white;font-size:18px;line-height:1;display:grid;place-items:center;box-shadow:0 2px 4px #18362225}.product-card:nth-child(5) .arrow-add,.product-card:nth-child(6) .arrow-add{background:#d85e13}
+.frozen-wrap{padding:13px 4% 0}.frozen-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;max-width:990px}
+.frozen-card{position:relative;display:flex;flex-direction:column;min-height:180px;padding:8px 9px 11px;border:2px solid #f0dfc5;border-radius:23px;background:rgba(255,249,237,.58);overflow:hidden;transition:transform .18s ease,border-color .18s ease}.frozen-card:hover{transform:translateY(-3px);border-color:#eacb9e}
+.frozen-card .photo{width:100%;height:104px;object-fit:cover;border-radius:15px;background:#f7ebd7}.frozen-card .product-name{justify-content:flex-start;text-align:left;padding:7px 38px 0 10px;min-height:49px;font-size:14px}
+.frozen-card .product-underline{margin:0 0 0 10px;width:43px}
+.frozen-card .arrow-add{background:#d85e13;right:12px;bottom:12px}
+.footer-art{width:100%;height:auto;margin-top:4px}
+/* Accessible controls remain real controls while the artwork carries the exact visual composition. */
+.mobile-header,.mobile-hero,.mobile-footer{display:none}
+.drawer-backdrop{position:fixed;inset:0;background:#07180f88;z-index:30;opacity:0;pointer-events:none;transition:.2s}.drawer-backdrop.open{opacity:1;pointer-events:auto}
+.cart-drawer{position:fixed;right:0;top:0;bottom:0;width:min(410px,100%);z-index:31;background:#fff9ed;padding:24px;box-shadow:-15px 0 45px #102f1d22;transform:translateX(105%);transition:.25s;display:flex;flex-direction:column}.cart-drawer.open{transform:translateX(0)}
+.drawer-head{display:flex;justify-content:space-between;align-items:center}.drawer-head h2{margin:0;color:var(--green);font-size:28px;font-weight:900}.close{width:38px;height:38px;border:0;border-radius:50%;background:#f1e1c8;color:var(--green);font-size:23px}.cart-list{flex:1;overflow:auto;margin:20px 0}.cart-row{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:13px 0;border-bottom:1px solid var(--line);font-size:14px}.qty{display:flex;align-items:center;gap:9px}.qty button{width:26px;height:26px;border:1px solid #d9c8ad;border-radius:50%;background:white;color:var(--green)}.cart-empty{padding:42px 8px;text-align:center;color:#777866}.cart-bottom{border-top:1px solid var(--line);padding-top:17px}.cart-bottom p{font-size:12px;color:#797a6b;line-height:1.5}.cart-total{display:flex;justify-content:space-between;font-weight:900;color:var(--green)}.notice{position:fixed;z-index:50;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;pointer-events:none;padding:12px 18px;border-radius:50px;background:var(--green);color:#fff8ea;font-size:13px;box-shadow:0 6px 24px #112d1d44;transition:.2s}.notice.show{opacity:1;transform:translate(-50%,0)}
+dialog{border:0;border-radius:22px;padding:25px;max-width:min(440px,calc(100% - 28px));color:var(--ink);background:#fff9ed;box-shadow:0 18px 60px #102f1d44}dialog::backdrop{background:#07180f88}dialog h2{margin:0 0 8px;color:var(--green)}dialog p{line-height:1.6;color:#626c5a}dialog button{border:0;border-radius:30px;padding:10px 18px;background:var(--green);color:white;font-weight:800}
+@media(max-width:900px){.desktop-header,.desktop-hero{display:none}.mobile-header{height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;background:var(--green);color:#fff7e8}.mobile-brand{font-family:Kalam,cursive;font-size:25px;font-weight:700;line-height:.82;color:#fff2dc}.mobile-brand em{font-style:normal;color:var(--orange)}.mobile-actions{display:flex;gap:9px}.mobile-actions button{width:38px;height:38px;border:1px solid #f5d7a4;border-radius:50%;background:transparent;color:white;font-size:17px}.mobile-hero{display:block;background:var(--cream);padding:26px 18px 12px;overflow:hidden}.mobile-hero h1{margin:0;font-size:clamp(48px,12vw,70px);line-height:.86;letter-spacing:-3px;font-weight:1000;color:var(--green)}.mobile-hero h1 em{display:block;color:var(--orange);font-style:normal}.mobile-hero .tagline{font-family:Kalam,cursive;font-size:23px;font-weight:700;margin:12px 0 12px}.city-tag{display:inline-flex;background:var(--green);color:#fff5df;border-radius:30px;padding:8px 15px;font-size:13px;font-weight:800}.mobile-order{display:inline-flex;background:var(--orange);color:white;border-radius:30px;padding:12px 22px;margin-top:13px;font-size:14px;font-weight:900}.mobile-mascot{width:100%;height:230px;object-fit:cover;object-position:center 45%;margin-top:3px;border-radius:22px}.promo-row{padding:10px 14px 0;grid-template-columns:1fr;gap:10px}.promo-card{border-radius:20px}.menu-area{padding:20px 14px 0}.section-title{font-size:32px;gap:12px;margin-bottom:12px}.section-title:before,.section-title:after{width:35px}.ready-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.product-card{min-height:205px;border-radius:19px;padding:7px}.product-card .photo{height:125px}.product-name{font-size:13px;min-height:38px;padding:0 20px}.arrow-add{width:25px;height:25px;right:8px;bottom:8px}.frozen-wrap{padding:13px 14px 0}.frozen-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:none;gap:10px}.frozen-card{min-height:175px;border-radius:19px;padding:7px}.frozen-card .photo{height:105px}.frozen-card .product-name{font-size:13px;min-height:44px}.footer-art{display:none}.mobile-footer{display:block;margin-top:18px;padding:28px 20px 20px;background:var(--green);color:#fff3dc;border-radius:45px 45px 0 0}.mobile-footer .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 12px;font-size:12px;font-weight:800}.mobile-footer .feature-grid span{display:flex;gap:8px;align-items:center}.mobile-footer .feature-grid b{font-size:22px;color:var(--orange)}.mobile-footer .foot-brand{text-align:right;font-family:Kalam,cursive;font-size:27px;color:#fff0d1;margin-top:22px}.mobile-footer small{display:block;color:#dfd8bc;text-align:center;margin-top:17px}}
+@media(max-width:380px){.mobile-mascot{height:190px}.product-card .photo{height:112px}.frozen-card .photo{height:92px}.mobile-hero h1{font-size:46px}}
+</style>
+<script src="/assets/asset01-01.js"></script><script src="/assets/asset02-01.js"></script><script src="/assets/asset02-02.js"></script><script src="/assets/asset02-03.js"></script><script src="/assets/asset02-04.js"></script><script src="/assets/asset02-05.js"></script><script src="/assets/asset02-06.js"></script><script src="/assets/asset02-07.js"></script><script src="/assets/asset03-01.js"></script><script src="/assets/asset03-02.js"></script><script src="/assets/asset04-01.js"></script><script src="/assets/asset04-02.js"></script><script src="/assets/asset05-01.js"></script><script src="/assets/asset05-02.js"></script><script src="/assets/asset05-03.js"></script><script src="/assets/asset05-04.js"></script><script src="/assets/asset06-01.js"></script><script src="/assets/asset06-02.js"></script><script src="/assets/asset07-01.js"></script><script src="/assets/asset08-01.js"></script><script src="/assets/asset09-01.js"></script><script src="/assets/asset10-01.js"></script><script src="/assets/asset11-01.js"></script><script src="/assets/asset12-01.js"></script><script src="/assets/asset13-01.js"></script><script src="/assets/asset14-01.js"></script><script src="/assets/asset15-01.js"></script><script src="/assets/asset16-01.js"></script><script src="/assets/asset17-01.js"></script><script src="/assets/asset18-01.js"></script><script src="/assets/asset19-01.js"></script><script src="/assets/asset20-01.js"></script><script>window.CM_ASSETS={};const cmMimes={"asset01":"png","asset02":"png","asset03":"png","asset04":"png","asset05":"png","asset06":"png","asset07":"jpeg","asset08":"jpeg","asset09":"jpeg","asset10":"jpeg","asset11":"jpeg","asset12":"jpeg","asset13":"jpeg","asset14":"jpeg","asset15":"jpeg","asset16":"jpeg","asset17":"jpeg","asset18":"jpeg","asset19":"jpeg","asset20":"jpeg"};for(const [k,v] of Object.entries(window.__cmParts||{})){const uri="data:image/"+cmMimes[k]+";base64,"+v;window.CM_ASSETS[k]=uri;document.documentElement.style.setProperty("--cm-"+k,'url("'+uri+'")');}</script></head>
+<body>
+<header class="desktop-header" aria-label="Cloud Momos navigation">
+  <a class="header-hit home" href="#home" aria-label="Home"></a>
+  <a class="header-hit menu" href="#menu" aria-label="Our Menu"></a>
+  <a class="header-hit about" href="#about" aria-label="About"></a>
+  <a class="header-hit reviews" href="#reviews" aria-label="Reviews"></a>
+  <a class="header-hit faq" href="#faq" aria-label="FAQ"></a>
+  <a class="header-hit search" href="#menu" aria-label="Search menu"></a>
+  <a class="header-hit cart" href="#cart" id="desktopCart" aria-label="Shopping cart"></a>
+  <a class="header-hit account" href="#account" aria-label="Account"></a>
+</header>
+<header class="mobile-header">
+  <a class="mobile-brand" href="#home">Cloud<br><em>Momos</em></a>
+  <div class="mobile-actions"><button aria-label="Menu" onclick="document.querySelector('#menu').scrollIntoView({behavior:'smooth'})">☰</button><button aria-label="Shopping cart" id="mobileCart">🛒</button></div>
+</header>
+<main id="home">
+  <section class="desktop-hero" aria-label="Cloud Momos hero image">
+    <a class="hero-cta-hit" href="#menu" aria-label="Order now"></a>
+  </section>
+  <section class="mobile-hero" aria-label="Cloud Momos introduction">
+    <h1>Cloud <em>Momos</em></h1>
+    <div class="tagline">Little clouds. Big comfort.</div>
+    <span class="city-tag">📍 Only in Sylhet City</span><br>
+    <a class="mobile-order" href="#menu">Order Now&nbsp; →</a>
+    <img class="mobile-mascot" src="" data-cm-asset="asset05" alt="Cloud Momos chef mascot serving steamed momos">
+  </section>
+  <section class="promo-row" aria-label="Explore our momo ranges">
+    <a class="promo-card ready" href="#menu" aria-label="Explore ready to eat momos"></a>
+    <a class="promo-card frozen" href="#frozen" aria-label="Explore frozen momos"></a>
+  </section>
+  <section class="menu-area" id="menu">
+    <h2 class="section-title">Our Menu</h2>
+    <div class="ready-grid" id="readyGrid"></div>
+  </section>
+  <section class="frozen-wrap" id="frozen" aria-label="Frozen momo products">
+    <div class="frozen-grid" id="frozenGrid"></div>
+  </section>
+</main>
+<img class="footer-art" src="" data-cm-asset="asset06" alt="Cloud Momos promises: Fast and reliable delivery, freshly made with love, premium quality always, and a tasty experience in Sylhet">
+<footer class="mobile-footer">
+  <div class="feature-grid">
+    <span><b>✦</b> Fast &amp; Reliable Delivery</span>
+    <span><b>✓</b> Freshly Made with Love</span>
+    <span><b>★</b> Premium Quality Always</span>
+    <span><b>♡</b> A Tasty Experience in Sylhet</span>
+  </div>
+  <div class="foot-brand">Cloud Momos♡</div>
+  <small>© <span id="year"></span> Cloud Momos</small>
+</footer>
+<div class="drawer-backdrop" id="backdrop"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-modal="true">
+  <div class="drawer-head"><h2>Your Cart <span id="cartCount">0</span></h2><button class="close" id="closeCart" aria-label="Close cart">×</button></div>
+  <div class="cart-list" id="cartList"><div class="cart-empty">Your cart is waiting for something delicious.</div></div>
+  <div class="cart-bottom"><div class="cart-total"><span>Items</span><span id="cartTotal">0</span></div><p>This is a design preview. Prices, checkout and order submission will be connected after business details are confirmed.</p></div>
+</aside>
+<dialog id="infoDialog"><h2 id="dialogTitle">Cloud Momos</h2><p id="dialogText"></p><button id="dialogClose">Close</button></dialog>
+<div class="notice" id="notice">Added to your cart</div>
 <script>
-const arena=document.getElementById('arena'),basket=document.getElementById('basket'),scoreEl=document.getElementById('score'),livesEl=document.getElementById('lives'),timeEl=document.getElementById('time'),speech=document.getElementById('speech'),mascot=document.getElementById('mascot'),overlay=document.getElementById('overlay');
-let running=false,score=0,lives=3,time=30,x=50,items=[],spawn=0,last=0,raf=0,timer=null,caught=0;
-const taunts=['“Too slow! My grandma catches faster! 😜”','“Look up, superstar! Cake incoming!”','“Hehehe… missed me? I mean, missed the can!”','“Focus! I can hear your brain buffering!”','“Ooooh, nearly! That was painful to watch 😂”'];
-function say(s,face='🤡'){speech.textContent=s;mascot.textContent=face;mascot.animate([{transform:'rotate(0)'},{transform:'rotate(-9deg) scale(1.08)'},{transform:'rotate(0)'}],{duration:420})}
-function update(){scoreEl.textContent=score;livesEl.textContent=lives;timeEl.textContent=time}
-function move(v){x=Math.max(8,Math.min(92,x+v));basket.style.left=x+'%'}
-function spawnCan(){const el=document.createElement('div');el.className='fall';el.textContent=Math.random()>.2?'🍰':'🧁';el.style.left=(5+Math.random()*88)+'%';arena.appendChild(el);items.push({el,y:-48,x:parseFloat(el.style.left),speed:2.2+Math.random()*1.7})}
-function finish(win){running=false;cancelAnimationFrame(raf);clearInterval(timer);overlay.classList.add('show');document.getElementById('resultEmoji').textContent=win?'🏆':'😂';document.getElementById('resultTitle').textContent=win?'You caught the sweetness!':'Can-ny wins this round!';document.getElementById('resultText').textContent=win?'Nice run! You caught '+caught+' cans. This is a preview score, not yet added to rewards.':'You caught '+caught+' cans. Can-ny is laughing… run it back!';say(win?'“WHAT?! You actually did it?! 😳”':'“HAHAHA! I told you! Try again! 🤣”',win?'😳':'🤣')}
-function frame(){if(!running)return;spawn++;if(spawn>48){spawnCan();spawn=0}const h=arena.clientHeight,w=arena.clientWidth;items=items.filter(o=>{o.y+=o.speed;o.el.style.top=o.y+'px';const bx=x/100*w;if(o.y>h-88&&o.y<h-25&&Math.abs(o.x/100*w-bx)<54){o.el.remove();score+=1;caught++;update();if(caught%3===0)say('“Okay okay… beginner’s luck! 😏”','😏');return false}if(o.y>h-35){o.el.remove();lives--;update();say(taunts[Math.floor(Math.random()*taunts.length)],'😜');if(lives<=0)finish(false);return false}return true});if(running)raf=requestAnimationFrame(frame)}
-function start(){if(running)return;items.forEach(o=>o.el.remove());items=[];score=0;lives=3;time=30;caught=0;spawn=0;x=50;basket.style.left='50%';update();overlay.classList.remove('show');running=true;last=Date.now();say('“Let’s see if you can keep up! Hehehe!”','🤡');raf=requestAnimationFrame(frame);timer=setInterval(()=>{if(!running)return;time--;update();if(time===20)say('“Only 20 seconds… getting nervous? 😈”','😈');if(time<=0)finish(caught>=8)},1000)}
-document.getElementById('start').onclick=start;document.getElementById('again').onclick=start;document.getElementById('left').onpointerdown=()=>move(-8);document.getElementById('right').onpointerdown=()=>move(8);
-document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')move(-5);if(e.key==='ArrowRight')move(5);if(e.key===' '&&!running)start()});
-arena.addEventListener('pointermove',e=>{if(e.buttons||e.pointerType==='touch'){const r=arena.getBoundingClientRect();x=Math.max(5,Math.min(95,(e.clientX-r.left)/r.width*100));basket.style.left=x+'%'}});
-update();
-</script></body></html>
+document.querySelectorAll('[data-cm-asset]').forEach(el=>{el.src=window.CM_ASSETS[el.dataset.cmAsset]||''});
+const embeddedAssets={'packaging_frozen-momo-bag-BLANK-LABEL.jpg':window.CM_ASSETS["asset07"],'hero_bamboo-steamer-momos-with-red-sauce.jpg':window.CM_ASSETS["asset08"],'hero-reference.png':window.CM_ASSETS["asset02"],'frozen_veg-momo-balls.jpg':window.CM_ASSETS["asset09"],'menu_fried-momo-dumplings-veg-and-chicken.jpg':window.CM_ASSETS["asset10"],'frozen_chicken-momo-balls.jpg':window.CM_ASSETS["asset11"],'menu_veg-momo-dumplings.jpg':window.CM_ASSETS["asset12"],'menu_fried-momo-balls-veg-and-chicken.jpg':window.CM_ASSETS["asset13"],'frozen_chicken-momo-dumplings.jpg':window.CM_ASSETS["asset14"],'ready-to-eat_banner_steamer-momos-and-sauce.jpg':window.CM_ASSETS["asset15"],'menu_veg-momo-balls.jpg':window.CM_ASSETS["asset16"],'frozen-banner-reference.png':window.CM_ASSETS["asset04"],'header-reference.png':window.CM_ASSETS["asset01"],'ready-banner-reference.png':window.CM_ASSETS["asset03"],'menu_chicken-momo-balls.jpg':window.CM_ASSETS["asset17"],'sauce_red-chilli-dip-bowl.jpg':window.CM_ASSETS["asset18"],'menu_chicken-momo-dumplings.jpg':window.CM_ASSETS["asset19"],'footer-reference.png':window.CM_ASSETS["asset06"],'frozen_veg-momo-dumplings.jpg':window.CM_ASSETS["asset20"],'hero-mascot-mobile.png':window.CM_ASSETS["asset05"]};
+const ready=[
+ {name:'Chicken Momo Dumplings',file:'menu_chicken-momo-dumplings.jpg'},
+ {name:'Chicken Momo Balls',file:'menu_chicken-momo-balls.jpg'},
+ {name:'Veg Momo Dumplings',file:'menu_veg-momo-dumplings.jpg'},
+ {name:'Veg Momo Balls',file:'menu_veg-momo-balls.jpg'},
+ {name:'Fried Momo Dumplings (Veg & Chicken)',file:'menu_fried-momo-dumplings-veg-and-chicken.jpg'},
+ {name:'Fried Momo Balls (Veg & Chicken)',file:'menu_fried-momo-balls-veg-and-chicken.jpg'}
+];
+const frozen=[
+ {name:'Frozen Chicken Momo Dumplings',file:'frozen_chicken-momo-dumplings.jpg'},
+ {name:'Frozen Chicken Momo Balls',file:'frozen_chicken-momo-balls.jpg'},
+ {name:'Frozen Veg Momo Dumplings',file:'frozen_veg-momo-dumplings.jpg'},
+ {name:'Frozen Veg Momo Balls',file:'frozen_veg-momo-balls.jpg'}
+];
+let cart=[];const $=s=>document.querySelector(s);
+function makeCard(p,isFrozen=false){return `<article class="${isFrozen?'frozen-card':'product-card'}"><img class="photo" src="${embeddedAssets[p.file]||''}" alt="${p.name}" loading="lazy"><div class="product-name">${p.name}</div>${isFrozen?'':'<div class="product-underline"></div>'}<button class="arrow-add" data-add="${p.name}" aria-label="Add ${p.name} to cart">→</button></article>`}
+$('#readyGrid').innerHTML=ready.map(p=>makeCard(p)).join('');$('#frozenGrid').innerHTML=frozen.map(p=>makeCard(p,true)).join('');
+function renderCart(){let n=cart.reduce((s,p)=>s+p.qty,0);$('#cartCount').textContent=n;$('#cartTotal').textContent=n;$('#cartList').innerHTML=cart.length?cart.map((p,i)=>`<div class="cart-row"><strong>${p.name}</strong><div class="qty"><button data-qty="${i}" data-delta="-1" aria-label="Remove one">−</button><span>${p.qty}</span><button data-qty="${i}" data-delta="1" aria-label="Add one">+</button></div></div>`).join(''):'<div class="cart-empty">Your cart is waiting for something delicious.</div>'}
+let toastTimer;document.addEventListener('click',e=>{const add=e.target.closest('[data-add]');if(add){const name=add.dataset.add;const found=cart.find(x=>x.name===name);if(found)found.qty++;else cart.push({name,qty:1});renderCart();$('#notice').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#notice').classList.remove('show'),1400)}const q=e.target.closest('[data-qty]');if(q){const i=Number(q.dataset.qty);cart[i].qty+=Number(q.dataset.delta);if(cart[i].qty<=0)cart.splice(i,1);renderCart()}});
+function openCart(){ $('#cartDrawer').classList.add('open');$('#backdrop').classList.add('open');document.body.style.overflow='hidden'}function closeCart(){ $('#cartDrawer').classList.remove('open');$('#backdrop').classList.remove('open');document.body.style.overflow=''}
+$('#desktopCart').addEventListener('click',e=>{e.preventDefault();openCart()});$('#mobileCart').addEventListener('click',openCart);$('#closeCart').addEventListener('click',closeCart);$('#backdrop').addEventListener('click',closeCart);
+$('#year').textContent=new Date().getFullYear();
+function showInfo(title,text){$('#dialogTitle').textContent=title;$('#dialogText').textContent=text;$('#infoDialog').showModal()}
+document.querySelector('.header-hit.about').addEventListener('click',e=>{e.preventDefault();showInfo('About Cloud Momos','Little clouds. Big comfort. Cloud Momos brings ready-to-eat and frozen momo favourites to Sylhet.')});
+document.querySelector('.header-hit.reviews').addEventListener('click',e=>{e.preventDefault();showInfo('Reviews','Customer reviews will appear here once verified customer feedback is available.')});
+document.querySelector('.header-hit.faq').addEventListener('click',e=>{e.preventDefault();showInfo('Frequently asked questions','Ordering, delivery and product FAQs will be added after the business details are confirmed.')});
+document.querySelector('.header-hit.search').addEventListener('click',e=>{e.preventDefault();document.querySelector('#menu').scrollIntoView({behavior:'smooth'});showInfo('Find your momo','Browse the menu below to choose your momo favourites.')});
+document.querySelector('.header-hit.account').addEventListener('click',e=>{e.preventDefault();showInfo('Cloud Momos account','Customer accounts will be enabled when the ordering system is connected.')});
+$('#dialogClose').addEventListener('click',()=>$('#infoDialog').close());
+</script>
+</body>
+</html>
