@@ -1,264 +1,59 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#153a25">
-<title>Cloud Momos — Little clouds. Big comfort.</title>
-<meta name="description" content="Cloud Momos — freshly cooked and frozen momo favourites in Sylhet.">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Honeybees — A Little Buzz of Sweetness</title>
+<meta name="description" content="Honeybees makes two 50g snack favourites: Honey Mixed Nuts and Honey Roasted Almonds. Small packs, big happiness.">
+<meta name="theme-color" content="#fff4de">
+<style>
+:root{--cream:#fff7e9;--paper:#fffdf8;--honey:#f3a51b;--gold:#ffd56e;--orange:#e66d16;--brown:#4b260f;--ink:#2d1a0e;--muted:#8b715b;--line:#ead9bd;--soft:#fff0d1;--shadow:0 18px 50px rgba(91,49,14,.11)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:ui-rounded,"Trebuchet MS",Arial,sans-serif}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #e99a22;outline-offset:3px}
+.topbar{background:var(--brown);color:#fff0d2;text-align:center;padding:9px 16px;font-size:12px;letter-spacing:.08em}.topbar b{color:#ffd56e}
+.nav-wrap{position:sticky;top:0;z-index:20;background:rgba(255,250,240,.94);backdrop-filter:blur(14px);border-bottom:1px solid #efdfc7}.nav{max-width:1180px;margin:auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:22px}.brand{display:flex;align-items:center;gap:10px;min-width:205px}.bee{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(140deg,#ffe493,#f7ad23);font-size:27px;box-shadow:inset 0 -4px 0 rgba(124,61,0,.1)}.wordmark{font-size:27px;font-weight:1000;letter-spacing:-1.5px;color:var(--brown);line-height:1}.wordmark span{color:#e68a12}.tagline{display:block;font-size:9px;letter-spacing:.14em;color:#987047;margin-top:4px;text-transform:uppercase;font-weight:800}.nav-links{display:flex;gap:26px;align-items:center;font-size:13px;font-weight:800;color:#6d4c2e}.nav-links a:hover{color:var(--orange)}.nav-actions{display:flex;align-items:center;gap:10px}.cart-button,.cta{border:0;border-radius:999px;background:var(--brown);color:#fff7e9;padding:13px 19px;font-weight:900;box-shadow:0 7px 18px rgba(75,38,15,.16)}.cart-button span{display:inline-grid;place-items:center;background:#ffbd35;color:#4b260f;border-radius:50%;min-width:22px;height:22px;margin-left:7px;font-size:11px}.menu-toggle{display:none;border:1px solid var(--line);background:#fff7e9;border-radius:12px;padding:10px 12px;color:var(--brown)}
+.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 78% 18%,#ffe3a2 0,transparent 27%),linear-gradient(125deg,#fff6e6,#ffebc0 58%,#f6c66f);padding:62px 24px 54px}.hero:before,.hero:after{content:"";position:absolute;border:1px solid rgba(190,122,22,.18);width:230px;height:200px;transform:rotate(28deg);border-radius:36px;right:-95px;top:15px}.hero:after{width:160px;height:140px;right:auto;left:-95px;top:auto;bottom:-70px}.hero-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.03fr .97fr;align-items:center;gap:42px;position:relative;z-index:1}.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff7e9;border:1px solid #f1d89f;color:#9b6410;padding:8px 13px;border-radius:999px;font-weight:900;font-size:11px;letter-spacing:.1em;text-transform:uppercase}.hero h1{font-size:clamp(45px,6vw,76px);line-height:.99;letter-spacing:-3px;color:var(--brown);margin:20px 0 16px;max-width:620px}.hero h1 em{font-style:normal;color:#e57816}.hero p{font-size:16px;line-height:1.75;color:#755537;max-width:500px;margin:0 0 26px}.hero-cta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.cta{background:linear-gradient(135deg,#e66d16,#f5a51d);padding:15px 23px;box-shadow:0 10px 24px rgba(214,117,19,.22)}.subnote{font-size:12px;color:#886942;font-weight:800}.hero-showcase{background:rgba(255,253,248,.75);border:1px solid rgba(255,255,255,.9);border-radius:34px;padding:24px;box-shadow:0 24px 60px rgba(125,77,21,.15);transform:rotate(1deg)}.showcase-top{display:flex;justify-content:space-between;align-items:center;color:#89633a;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.showcase-top strong{background:#ffedbd;color:#8f5a11;padding:7px 10px;border-radius:20px}.pack-pair{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:15px}.pack-tile{min-height:250px;border-radius:22px;background:linear-gradient(150deg,#fff7e7,#f7e3bd);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:10px 10px 15px;overflow:hidden}.pack-image{width:100%;height:190px;background-image:url('data:image/webp;base64,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');background-size:200% 100%;background-repeat:no-repeat;background-position:left center;border-radius:16px;filter:drop-shadow(0 9px 8px rgba(70,40,10,.12))}.pack-image.almonds{background-position:right center}.pack-name{font-size:13px;font-weight:1000;color:var(--brown);text-align:center}.weight-chip{font-size:10px;font-weight:1000;background:#ffcb53;color:#633709;border-radius:99px;padding:5px 11px;margin-top:5px}.showcase-foot{text-align:center;color:#957149;font-size:11px;margin:15px 0 0;font-weight:800}
+.section{max-width:1180px;margin:auto;padding:78px 24px}.section-head{text-align:center;max-width:660px;margin:0 auto 32px}.section-kicker{font-size:11px;color:#b27315;letter-spacing:.17em;text-transform:uppercase;font-weight:1000}.section h2{font-size:clamp(32px,4vw,47px);letter-spacing:-1.8px;color:var(--brown);margin:10px 0}.section-head p{color:var(--muted);line-height:1.7;margin:0}.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.product-card{background:var(--paper);border:1px solid #efdfc8;border-radius:26px;padding:18px;display:grid;grid-template-columns:42% 1fr;gap:22px;align-items:center;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s}.product-card:hover{transform:translateY(-5px);box-shadow:0 22px 52px rgba(91,49,14,.14)}.product-picture{height:250px;border-radius:20px;background:linear-gradient(150deg,#fff3d6,#f7dfb0);overflow:hidden;display:flex;align-items:center;justify-content:center;padding:9px}.product-picture .pack-image{height:100%;background-size:200% 100%}.product-info h3{color:var(--brown);font-size:23px;letter-spacing:-.7px;margin:7px 0}.product-info p{font-size:13px;line-height:1.65;color:#806a52;margin:0 0 13px}.meta{display:flex;gap:8px;flex-wrap:wrap}.meta span{font-size:10px;padding:6px 9px;background:#fff1d1;color:#8a5c18;border-radius:999px;font-weight:900}.product-bottom{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:20px}.price{font-size:26px;font-weight:1000;color:var(--brown)}.price small{font-size:11px;color:#967b5d;font-weight:700}.add{border:0;background:var(--honey);color:#4b260f;border-radius:999px;padding:12px 15px;font-size:12px;font-weight:1000}.add:hover{background:#ffc34c}
+.promise{background:#f7ead1;border-top:1px solid #ead7b9;border-bottom:1px solid #ead7b9}.promise-row{max-width:1180px;margin:auto;padding:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.promise-item{display:flex;align-items:center;justify-content:center;gap:12px;color:#694a2b;font-size:12px;font-weight:900}.promise-item i{font-style:normal;font-size:24px}
+.story{display:grid;grid-template-columns:.85fr 1.15fr;gap:40px;align-items:center}.story-card{background:var(--brown);color:#fff3d9;border-radius:30px;padding:34px;position:relative;overflow:hidden;min-height:280px}.story-card:after{content:"";position:absolute;right:-36px;bottom:-70px;width:190px;height:190px;border:26px solid rgba(248,176,37,.22);border-radius:42px;transform:rotate(35deg)}.story-card .bigbee{font-size:48px}.story-card h3{font-size:30px;margin:14px 0 8px}.story-card p{color:#f0d7ad;line-height:1.7;font-size:14px;max-width:330px}.story-copy h2{font-size:40px;line-height:1.1;letter-spacing:-1.6px;color:var(--brown);margin:8px 0 16px}.story-copy p{color:#806a52;line-height:1.85;font-size:14px}.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.faq{background:#fffdf8;border:1px solid var(--line);border-radius:18px;padding:20px}.faq h4{margin:0 0 8px;color:var(--brown);font-size:15px}.faq p{margin:0;color:#806a52;font-size:13px;line-height:1.7}
+.footer{background:#3e200e;color:#f6dfb5;padding:38px 24px 20px}.footer-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:30px;align-items:flex-start;flex-wrap:wrap}.footer-brand{font-size:25px;font-weight:1000;color:#fff3d8}.footer p{font-size:12px;color:#d9b98c;line-height:1.8;max-width:360px}.footer-links{display:flex;gap:20px;flex-wrap:wrap;font-size:12px;font-weight:800}.copyright{max-width:1180px;margin:25px auto 0;border-top:1px solid rgba(255,255,255,.12);padding-top:15px;color:#c7a47a;font-size:10px}
+.overlay{position:fixed;inset:0;background:rgba(39,23,11,.38);z-index:40;opacity:0;pointer-events:none;transition:opacity .2s}.overlay.open{opacity:1;pointer-events:auto}.drawer{position:fixed;z-index:50;right:0;top:0;height:100dvh;width:min(420px,100%);background:#fffaf0;box-shadow:-18px 0 55px rgba(0,0,0,.16);padding:24px;transform:translateX(105%);transition:transform .25s;display:flex;flex-direction:column}.drawer.open{transform:translateX(0)}.drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:17px}.drawer-head h3{color:var(--brown);margin:0;font-size:22px}.close{border:0;background:#f7e7ca;border-radius:50%;width:37px;height:37px;font-size:20px;color:var(--brown)}.cart-lines{overflow:auto;flex:1;padding:10px 0}.cart-line{display:grid;grid-template-columns:1fr auto;gap:10px;padding:14px 0;border-bottom:1px solid #efe1cb}.cart-line strong{display:block;color:var(--brown);font-size:13px}.cart-line small{color:#977d5f;font-size:11px}.qty{display:flex;align-items:center;gap:9px;margin-top:9px}.qty button{border:0;border-radius:50%;width:24px;height:24px;background:#f4e1bd;color:#6b4215}.drawer-total{border-top:1px solid var(--line);padding-top:16px}.total-row{display:flex;justify-content:space-between;color:var(--brown);font-weight:1000;margin-bottom:15px}.checkout{width:100%;border:0;border-radius:999px;background:var(--brown);color:white;padding:15px;font-weight:1000}.empty{color:#8e7658;text-align:center;padding:60px 10px;font-size:14px}.modal{position:fixed;z-index:60;left:50%;top:50%;transform:translate(-50%,-46%);width:min(420px,calc(100% - 32px));background:#fffaf0;border-radius:24px;padding:28px;box-shadow:0 25px 70px rgba(0,0,0,.22);opacity:0;pointer-events:none;transition:.2s}.modal.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}.modal h3{margin:0 0 9px;color:var(--brown);font-size:23px}.modal p{color:#806a52;font-size:13px;line-height:1.7}.modal button{border:0;border-radius:999px;background:var(--honey);color:var(--brown);font-weight:1000;padding:12px 18px}.footer-note{font-size:10px;color:#b9925f}
+@media(max-width:900px){.nav-links{gap:14px}.hero-inner{grid-template-columns:1fr;gap:30px}.hero-copy{text-align:center}.hero h1,.hero p{margin-left:auto;margin-right:auto}.hero-cta{justify-content:center}.hero-showcase{max-width:580px;margin:auto}.products{grid-template-columns:1fr}.product-card{max-width:720px;margin:auto;width:100%}.story{grid-template-columns:1fr}.story-card{min-height:220px}}
+@media(max-width:640px){.nav{padding:12px 16px}.brand{min-width:auto}.wordmark{font-size:22px}.bee{width:39px;height:39px;font-size:23px}.nav-links{display:none;position:absolute;left:12px;right:12px;top:73px;background:#fffaf0;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow);flex-direction:column;align-items:flex-start}.nav-links.show{display:flex}.menu-toggle{display:block}.cart-button{padding:10px 12px}.cart-label{display:none}.hero{padding:44px 16px 35px}.hero h1{font-size:48px;letter-spacing:-2.5px}.hero p{font-size:14px}.hero-showcase{padding:14px;border-radius:24px}.pack-tile{min-height:205px;padding:7px}.pack-image{height:150px}.section{padding:56px 16px}.product-card{grid-template-columns:1fr;gap:14px;padding:13px}.product-picture{height:225px}.product-picture .pack-image{max-width:220px}.product-info{padding:4px 5px 7px}.product-bottom{margin-top:15px}.promise-row{grid-template-columns:1fr;gap:14px;padding:20px}.promise-item{justify-content:flex-start}.faq-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column}.footer-links{gap:14px}}
+</style>
 </head>
 <body>
-<p style="font-family:system-ui;padding:24px;color:#173b25">Loading Cloud Momos…</p>
-<script>window.CM_PAGE_PARTS=[];</script>
-<script src="/site-parts-v2/part-01.js"></script>
-<script src="/site-parts-v2/part-02.js"></script>
-<script src="/site-parts-v2/part-03.js"></script>
-<script src="/site-parts-v2/part-04.js"></script>
-<script src="/site-parts-v2/part-05.js"></script>
-<script src="/site-parts-v2/part-06.js"></script>
-<script src="/site-parts-v2/part-07.js"></script>
-<script src="/site-parts-v2/part-08.js"></script>
-<script src="/site-parts-v2/part-09.js"></script>
-<script src="/site-parts-v2/part-10.js"></script>
-<script src="/site-parts-v2/part-11.js"></script>
-<script src="/site-parts-v2/part-12.js"></script>
-<script src="/site-parts-v2/part-13.js"></script>
-<script src="/site-parts-v2/part-14.js"></script>
-<script src="/site-parts-v2/part-15.js"></script>
-<script src="/site-parts-v2/part-16.js"></script>
-<script src="/site-parts-v2/part-17.js"></script>
-<script src="/site-parts-v2/part-18.js"></script>
-<script src="/site-parts-v2/part-19.js"></script>
-<script src="/site-parts-v2/part-20.js"></script>
+<div class="topbar">TWO FAVOURITES · <b>50G MINI PACKS</b> · ONE LITTLE BUZZ OF SWEETNESS</div>
+<div class="nav-wrap"><nav class="nav">
+<a class="brand" href="#top"><span class="bee">🐝</span><span><span class="wordmark">Honey<span>bees</span></span><small class="tagline">A Little Buzz of Sweetness</small></span></a>
+<div class="nav-links" id="navLinks"><a href="#top">Home</a><a href="#products">Our Products</a><a href="#story">Our Story</a><a href="#faq">FAQ</a></div>
+<div class="nav-actions"><button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button><button class="cart-button" id="openCart"><span class="cart-label">Your bag</span><span id="cartCount">0</span></button></div>
+</nav></div>
+<main id="top">
+<section class="hero"><div class="hero-inner">
+<div class="hero-copy"><span class="eyebrow">✦ Small packs · Big happiness</span><h1>A little buzz of <em>sweetness.</em></h1><p>Two snack-time favourites, made for the moments when you want something sweet, nutty and just the right size.</p><div class="hero-cta"><a class="cta" href="#products">Shop the 50g packs →</a><span class="subnote">Just 2 products. No extra fuss.</span></div></div>
+<div class="hero-showcase"><div class="showcase-top"><span>Meet the mini duo</span><strong>50g each</strong></div><div class="pack-pair"><div class="pack-tile"><div class="pack-image"></div><div class="pack-name">Honey Mixed Nuts</div><span class="weight-chip">50 GRAMS</span></div><div class="pack-tile"><div class="pack-image almonds"></div><div class="pack-name">Honey Roasted Almonds</div><span class="weight-chip">50 GRAMS</span></div></div><div class="showcase-foot">A little pack for a little happy break</div></div>
+</div></section>
+<div class="promise"><div class="promise-row"><div class="promise-item"><i>🍯</i><span>Honey-forward flavour</span></div><div class="promise-item"><i>🥜</i><span>Two focused nut snacks</span></div><div class="promise-item"><i>🎒</i><span>Easy 50g mini packs</span></div></div></div>
+<section class="section" id="products"><div class="section-head"><span class="section-kicker">The Honeybees menu</span><h2>Pick your little pack.</h2><p>Two favourites, each in a handy 50g pack. Choose one—or add both to your bag.</p></div>
+<div class="products">
+<article class="product-card"><div class="product-picture"><div class="pack-image"></div></div><div class="product-info"><div class="meta"><span>50g MINI PACK</span><span>HONEY MIX</span></div><h3>Honey Mixed Nuts</h3><p>A glossy, honey-coated blend of nuts inspired by your signature snack idea. Contains nuts.</p><div class="product-bottom"><div class="price">৳119 <small>/ 50g</small></div><button class="add" data-add="mixed">Add to bag +</button></div></div></article>
+<article class="product-card"><div class="product-picture"><div class="pack-image almonds"></div></div><div class="product-info"><div class="meta"><span>50g MINI PACK</span><span>ROASTED</span></div><h3>Honey Roasted Almonds</h3><p>Whole almonds with a light honey finish for a crisp, sweet snack. Contains almonds.</p><div class="product-bottom"><div class="price">৳139 <small>/ 50g</small></div><button class="add" data-add="almonds">Add to bag +</button></div></div></article>
+</div><p style="text-align:center;color:#947b5c;font-size:11px;margin-top:20px">Displayed packaging is a concept mock-up. Final pack design and prices will be confirmed after costing.</p></section>
+<section class="story section" id="story"><div class="story-card"><div class="bigbee">🐝 🍯</div><h3>Small packs. Sweet moments.</h3><p>Honeybees keeps the menu focused on two nut snacks, packed in 50g portions for easy, everyday enjoyment.</p></div><div class="story-copy"><span class="section-kicker">A note from Honeybees</span><h2>Good snacks don't need a long menu.</h2><p>We are building Honeybees around two simple favourites: Honey Mixed Nuts and Honey Roasted Almonds. The goal is clear product information, practical mini packs and a taste worth coming back for.</p><p>Ingredients, allergen details, storage guidance and delivery information will be published with the final product labels before orders open.</p><a href="#products" class="cta" style="display:inline-block;margin-top:8px">Explore the two packs →</a></div></section>
+<section class="section" id="faq"><div class="section-head"><span class="section-kicker">A few useful details</span><h2>Before you snack.</h2><p>We will publish the final ingredient and delivery details before launch.</p></div><div class="faq-grid"><div class="faq"><h4>What is the pack size?</h4><p>Both Honeybees products are planned as 50g mini packs.</p></div><div class="faq"><h4>Do the products contain allergens?</h4><p>Yes. Both products contain tree nuts. Final ingredient and allergen statements will be printed on the pack.</p></div><div class="faq"><h4>How should I store them?</h4><p>Follow the storage instructions and best-before date printed on the final pack. Keep the pack sealed between snacks.</p></div><div class="faq"><h4>When can I place an order?</h4><p>Checkout, payment methods and delivery areas are being configured. This preview does not accept real orders yet.</p></div></div></section>
+</main>
+<footer class="footer"><div class="footer-inner"><div><div class="footer-brand">🐝 Honeybees</div><p>A Little Buzz of Sweetness. Two 50g nut snacks, one focused little brand.</p></div><div class="footer-links"><a href="#products">Products</a><a href="#story">Our Story</a><a href="#faq">FAQ</a><a href="#top">Back to top ↑</a></div></div><div class="copyright">© 2026 Honeybees. Product pricing, labels and fulfilment details are provisional until launch.</div></footer>
+<div class="overlay" id="overlay"></div><aside class="drawer" id="drawer" aria-label="Shopping bag"><div class="drawer-head"><h3>Your bag</h3><button class="close" id="closeCart" aria-label="Close cart">×</button></div><div class="cart-lines" id="cartLines"><div class="empty">Your bag is waiting for a little sweetness.</div></div><div class="drawer-total"><div class="total-row"><span>Subtotal</span><span id="cartTotal">৳0</span></div><button class="checkout" id="checkoutBtn">Continue to checkout</button></div></aside>
+<div class="modal" id="previewModal"><h3>Checkout is coming soon</h3><p>This is the Honeybees design preview. No real order or payment will be submitted. The customer checkout and admin order flow will be connected after the product costing and delivery settings are confirmed.</p><button id="modalClose">Got it</button></div>
 <script>
-document.open();
-const page=window.CM_PAGE_PARTS.join("");
-const desktopFixes=`
-<style id="cloud-momos-desktop-refinements">
-/* Desktop refinements — preserve the supplied artwork and palette. */
-@media (min-width:901px) and (max-width:1240px){
-  .ready-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-  .product-card{min-height:250px;padding:12px}
-  .product-card .photo{height:158px}
-  .product-name{font-size:15px}
-}
-@media (min-width:1241px) and (max-width:1500px){
-  .ready-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
-  .product-card{min-height:242px}
-  .product-card .photo{height:150px}
-}
-@media (min-width:1501px){
-  .ready-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
-  .product-card .photo{height:145px}
-}
-@media (min-width:901px){
-  .menu-area,.frozen-wrap{padding-left:clamp(28px,4vw,72px);padding-right:clamp(28px,4vw,72px)}
-  .frozen-grid{margin-inline:auto}
-  .hero-cta-hit{top:80.5%;height:13%;min-height:38px}
-  .header-hit{cursor:pointer}
-  .product-card:hover,.frozen-card:hover{box-shadow:0 10px 24px rgba(23,59,37,.08)}
-  .cart-drawer{max-width:440px}
-}
-#cartCount{display:inline-grid;place-items:center;min-width:26px;height:26px;padding:0 7px;border-radius:99px;background:var(--orange);color:#fff;font-size:13px;vertical-align:middle}
-</style>`;
-const demoPriceCss=`
-<style id="cloud-momos-demo-order-styles">
-.demo-price{display:block;width:max-content;max-width:100%;margin:5px auto 5px;padding:4px 10px;border-radius:999px;border:1px solid #f2d6ad;background:#fff4e2;color:#a94d09;font-size:11px;font-weight:900;line-height:1.25;white-space:nowrap}
-.frozen-card .demo-price{margin:0 10px 5px;font-size:11px}
-.demo-price-note{margin:0 auto 12px;text-align:center;color:#8b5b2d;font-size:11px;font-weight:900;letter-spacing:.07em}
-.cm-cost-line{display:flex;justify-content:space-between;gap:14px;margin:8px 0;color:#52624f;font-size:13px}
-.cm-cost-line strong{color:var(--green);font-weight:900}
-.cm-cost-grand{display:flex;justify-content:space-between;gap:14px;padding-top:12px;margin-top:10px;border-top:1px solid var(--line);color:var(--green);font-size:17px;font-weight:900}
-.cm-cod-note{margin:12px 0 7px;padding:10px 12px;border-radius:13px;background:#edf3e9;color:#23472c;font-size:12px;font-weight:800;line-height:1.5}
-.cm-demo-disclaimer{font-size:11px!important;line-height:1.45;color:#877a63!important}
-#cmCheckout{width:100%;margin-top:9px;padding:13px 16px;border:0;border-radius:999px;background:var(--orange);color:#fff;font-weight:900}
-#cmCheckout:disabled{opacity:.45;cursor:not-allowed}
-.cm-cart-info{min-width:0;flex:1}
-.cm-cart-info strong{display:block;color:var(--green);font-size:13px;line-height:1.25}
-.cm-cart-info small{display:block;margin-top:4px;color:#7b806e;font-size:11px;font-weight:800}
-#cmCheckoutDialog{width:min(570px,calc(100vw - 28px));max-height:calc(100dvh - 28px);overflow:auto;border:1px solid #ead8b8;border-radius:24px;background:#fff9ed;padding:25px;color:var(--ink);box-shadow:0 22px 70px #102f1d55}
-#cmCheckoutDialog::backdrop{background:#07180f99}
-.cm-dialog-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:7px}
-.cm-dialog-head h2{margin:0;color:var(--green);font-size:25px;font-weight:900}
-.cm-dialog-close{width:36px;height:36px;border:0;border-radius:50%;background:#f1e1c8;color:var(--green);font-size:22px}
-.cm-checkout-intro{margin:0 0 18px;color:#777866;font-size:13px;line-height:1.5}
-.cm-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.cm-field{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
-.cm-field.full{grid-column:1/-1}
-.cm-field label{font-size:12px;font-weight:900;color:var(--green)}
-.cm-field input,.cm-field textarea{width:100%;border:1px solid #e4d4b8;border-radius:12px;padding:12px;background:#fffdf8;color:var(--ink);font:inherit;font-size:14px}
-.cm-field textarea{min-height:75px;resize:vertical}
-.cm-payment{padding:13px 15px;border:1px solid #cbdcc5;border-radius:14px;background:#edf3e9;color:#21452a;font-size:13px;font-weight:900}
-.cm-payment small{display:block;margin-top:4px;color:#657361;font-size:11px;font-weight:700}
-.cm-order-summary{margin:15px 0;padding:14px;border-radius:14px;background:#f7efdf}
-.cm-order-summary div{display:flex;justify-content:space-between;gap:12px;margin:5px 0;font-size:13px}
-.cm-order-summary .cm-grand{padding-top:9px;margin-top:9px;border-top:1px solid #e7d8bc;color:var(--green);font-size:17px;font-weight:900}
-.cm-place-order{width:100%;padding:14px 16px;border:0;border-radius:999px;background:var(--green);color:#fff8ea;font-weight:900}
-.cm-cancel-order{display:block;margin:10px auto 0;padding:7px 14px;border:0;background:transparent;color:#777866;font-size:12px;font-weight:800}
-.cm-success{padding:18px 5px 3px;text-align:center}
-.cm-success-mark{display:grid;place-items:center;width:56px;height:56px;margin:0 auto 12px;border-radius:50%;background:#e6f0e1;color:#24552f;font-size:29px}
-.cm-success h3{margin:0 0 8px;color:var(--green);font-size:23px}
-.cm-success p{color:#6b7564;font-size:13px;line-height:1.5}
-.cm-success .cm-demo-ref{padding:10px;border-radius:12px;background:#f7efdf;color:var(--green);font-weight:900}
-.cm-success button{margin-top:10px;padding:12px 25px;border:0;border-radius:999px;background:var(--orange);color:white;font-weight:900}
-@media(max-width:520px){#cmCheckoutDialog{padding:19px}.cm-form-grid{grid-template-columns:1fr}.cm-field.full{grid-column:auto}}
-</style>`;
-const demoOrderUi=`
-<script id="cloud-momos-demo-order">
-(function(){
-  const prices={
-    "Chicken Momo Dumplings":150,
-    "Chicken Momo Balls":150,
-    "Veg Momo Dumplings":120,
-    "Veg Momo Balls":120,
-    "Fried Momo Dumplings (Veg & Chicken)":160,
-    "Fried Momo Balls (Veg & Chicken)":160,
-    "Frozen Chicken Momo Dumplings":240,
-    "Frozen Chicken Momo Balls":240,
-    "Frozen Veg Momo Dumplings":200,
-    "Frozen Veg Momo Balls":200
-  };
-  const deliveryFee=60;
-  let demoOrderNumber=0;
-  const money=function(v){return "৳"+Number(v||0).toLocaleString("en-BD")};
-  const cards=document.querySelectorAll("#readyGrid .product-card,#frozenGrid .frozen-card");
-  cards.forEach(function(card){
-    const name=card.getAttribute("data-product-name");
-    const productName=Object.keys(prices).find(function(k){return k.toLowerCase()===name;});
-    if(!productName)return;
-    card.dataset.demoPrice=prices[productName];
-    const price=document.createElement("span");
-    price.className="demo-price";
-    price.textContent="Demo price · "+money(prices[productName]);
-    const insertBefore=card.querySelector(".product-underline")||card.querySelector(".arrow-add");
-    card.insertBefore(price,insertBefore);
-  });
-  document.querySelectorAll(".menu-area .section-title,.frozen-wrap .section-title").forEach(function(title){
-    const note=document.createElement("p");
-    note.className="demo-price-note";
-    note.textContent="SAMPLE PRICES · DEMO ONLY · FINAL RATES TO BE CONFIRMED";
-    title.insertAdjacentElement("afterend",note);
-  });
-  const cartBottom=document.querySelector(".cart-bottom");
-  cartBottom.innerHTML=
-    '<div class="cm-cost-line"><span>Items</span><strong id="cmCartItems">0</strong></div>'+
-    '<div class="cm-cost-line"><span>Subtotal</span><strong id="cmSubtotal">৳0</strong></div>'+
-    '<div class="cm-cost-line"><span>Delivery charge (demo)</span><strong id="cmDelivery">৳0</strong></div>'+
-    '<div class="cm-cost-grand"><span>Total</span><strong id="cmGrandTotal">৳0</strong></div>'+
-    '<div class="cm-cod-note">Payment method: CASH ON DELIVERY ONLY. Pay in cash when your order is delivered.</div>'+
-    '<button type="button" id="cmCheckout" disabled>Proceed to Checkout →</button>'+
-    '<p class="cm-demo-disclaimer">Demo checkout only. Sample product prices and delivery charge are not final. No real order or payment will be submitted.</p>'+
-    '<span id="cartTotal" hidden>0</span>';
-  const checkoutDialog=document.createElement("dialog");
-  checkoutDialog.id="cmCheckoutDialog";
-  checkoutDialog.innerHTML=
-    '<div id="cmCheckoutFormWrap">'+
-      '<div class="cm-dialog-head"><h2>Complete Your Order</h2><button type="button" class="cm-dialog-close" id="cmCheckoutClose" aria-label="Close">×</button></div>'+
-      '<p class="cm-checkout-intro">Try the Cloud Momos demo checkout. Delivery is shown for Sylhet City only.</p>'+
-      '<form id="cmCheckoutForm">'+
-        '<div class="cm-form-grid">'+
-          '<div class="cm-field"><label for="cmCustomerName">Full name *</label><input id="cmCustomerName" name="customerName" autocomplete="name" required placeholder="Your name"></div>'+
-          '<div class="cm-field"><label for="cmCustomerPhone">Phone number *</label><input id="cmCustomerPhone" name="phone" type="tel" autocomplete="tel" required placeholder="01XXXXXXXXX"></div>'+
-          '<div class="cm-field full"><label for="cmCustomerAddress">Full delivery address *</label><textarea id="cmCustomerAddress" name="address" autocomplete="street-address" required placeholder="House, road, area, landmark"></textarea></div>'+
-          '<div class="cm-field full"><label for="cmCustomerArea">Area in Sylhet City *</label><input id="cmCustomerArea" name="area" required placeholder="e.g. Zindabazar"></div>'+
-          '<div class="cm-field full"><label for="cmCustomerNote">Delivery note (optional)</label><input id="cmCustomerNote" name="note" placeholder="Any directions for the rider"></div>'+
-        '</div>'+
-        '<div class="cm-payment">✓ Cash on Delivery (COD) <small>Only payment option in this demo. No online payment is available.</small></div>'+
-        '<div class="cm-order-summary">'+
-          '<div><span>Subtotal</span><strong id="cmCheckoutSubtotal">৳0</strong></div>'+
-          '<div><span>Delivery (demo)</span><strong id="cmCheckoutDelivery">৳0</strong></div>'+
-          '<div class="cm-grand"><span>Pay on delivery</span><strong id="cmCheckoutTotal">৳0</strong></div>'+
-        '</div>'+
-        '<button class="cm-place-order" type="submit">Place Demo Order · COD</button>'+
-        '<button class="cm-cancel-order" type="button" id="cmCheckoutCancel">Go back to cart</button>'+
-      '</form>'+
-    '</div>'+
-    '<div class="cm-success" id="cmOrderSuccess" hidden>'+
-      '<div class="cm-success-mark">✓</div><h3>Demo order placed!</h3>'+
-      '<p>Thank you, <strong id="cmThanksName"></strong>. This is a sample confirmation only.</p>'+
-      '<div class="cm-demo-ref" id="cmDemoOrderRef"></div>'+
-      '<p id="cmDemoItems"></p><p id="cmDemoTotal"></p>'+
-      '<p><strong>Payment:</strong> Cash on Delivery only.</p>'+
-      '<p>No real order was sent or saved. Final products, prices and delivery charges must be confirmed before launch.</p>'+
-      '<button type="button" id="cmDemoDone">Done</button>'+
-    '</div>';
-  document.body.appendChild(checkoutDialog);
-  function getTotals(){
-    const count=cart.reduce(function(n,p){return n+p.qty;},0);
-    const subtotal=cart.reduce(function(sum,p){return sum+(prices[p.name]||0)*p.qty;},0);
-    const delivery=count?deliveryFee:0;
-    return {count:count,subtotal:subtotal,delivery:delivery,total:subtotal+delivery};
-  }
-  function refreshCart(){
-    const totals=getTotals();
-    document.getElementById("cmCartItems").textContent=String(totals.count);
-    document.getElementById("cmSubtotal").textContent=money(totals.subtotal);
-    document.getElementById("cmDelivery").textContent=money(totals.delivery);
-    document.getElementById("cmGrandTotal").textContent=money(totals.total);
-    document.getElementById("cmCheckout").disabled=!totals.count;
-    document.querySelectorAll(".cart-row").forEach(function(row,index){
-      const item=cart[index];if(!item)return;
-      const old=row.querySelector("strong");if(old)old.remove();
-      const qty=row.querySelector(".qty");
-      const info=document.createElement("div");info.className="cm-cart-info";
-      const title=document.createElement("strong");title.textContent=item.name;
-      const line=document.createElement("small");
-      const unit=prices[item.name]||0;
-      line.textContent=item.qty+" × "+money(unit)+" = "+money(unit*item.qty);
-      info.appendChild(title);info.appendChild(line);
-      row.insertBefore(info,qty);
-    });
-    if(checkoutDialog.open)refreshCheckoutTotals();
-  }
-  function refreshCheckoutTotals(){
-    const t=getTotals();
-    document.getElementById("cmCheckoutSubtotal").textContent=money(t.subtotal);
-    document.getElementById("cmCheckoutDelivery").textContent=money(t.delivery);
-    document.getElementById("cmCheckoutTotal").textContent=money(t.total);
-  }
-  document.addEventListener("click",function(e){
-    if(e.target.closest("[data-add]")||e.target.closest("[data-qty]"))refreshCart();
-  });
-  document.getElementById("cmCheckout").addEventListener("click",function(){
-    if(!cart.length)return;
-    refreshCheckoutTotals();
-    checkoutDialog.showModal();
-  });
-  function closeCheckout(){checkoutDialog.close();}
-  document.getElementById("cmCheckoutClose").addEventListener("click",closeCheckout);
-  document.getElementById("cmCheckoutCancel").addEventListener("click",closeCheckout);
-  document.getElementById("cmCheckoutForm").addEventListener("submit",function(e){
-    e.preventDefault();
-    const form=e.currentTarget;
-    if(!form.reportValidity())return;
-    const t=getTotals();
-    if(!t.count)return;
-    demoOrderNumber++;
-    document.getElementById("cmCheckoutFormWrap").hidden=true;
-    document.getElementById("cmOrderSuccess").hidden=false;
-    document.getElementById("cmThanksName").textContent=form.elements.customerName.value.trim();
-    document.getElementById("cmDemoOrderRef").textContent="Demo reference: CM-DEMO-"+String(demoOrderNumber).padStart(4,"0");
-    document.getElementById("cmDemoItems").textContent=cart.map(function(p){return p.name+" × "+p.qty;}).join(" · ");
-    document.getElementById("cmDemoTotal").textContent="Demo total: "+money(t.total);
-  });
-  document.getElementById("cmDemoDone").addEventListener("click",function(){
-    checkoutDialog.close();
-    document.getElementById("cmCheckoutForm").reset();
-    document.getElementById("cmCheckoutFormWrap").hidden=false;
-    document.getElementById("cmOrderSuccess").hidden=true;
-    cart.length=0;
-    renderCart();
-    refreshCart();
-    closeCart();
-  });
-  checkoutDialog.addEventListener("click",function(e){if(e.target===checkoutDialog)closeCheckout();});
-  refreshCart();
-})();
-<\/script>`;
-const headInjected=page.replace("</head>",desktopFixes+demoPriceCss+"</head>");
-const withDemo=headInjected.replace("</body>",demoOrderUi+"</body>");
-document.write(withDemo);document.close();
-document.close();
+const catalog=[{id:'mixed',name:'Honey Mixed Nuts',price:119},{id:'almonds',name:'Honey Roasted Almonds',price:139}];
+let bag={};try{bag=JSON.parse(localStorage.getItem('honeybees-preview-bag')||'{}')}catch(e){bag={}}
+const $=id=>document.getElementById(id);
+function saveBag(){localStorage.setItem('honeybees-preview-bag',JSON.stringify(bag));renderBag()}
+function totalCount(){return Object.values(bag).reduce((a,b)=>a+b,0)}
+function renderBag(){$('cartCount').textContent=totalCount();$('cartTotal').textContent='৳'+catalog.reduce((sum,p)=>sum+p.price*(bag[p.id]||0),0);let html='';catalog.forEach(p=>{if(bag[p.id])html+='<div class="cart-line"><div><strong>'+p.name+'</strong><small>50g · ৳'+p.price+' each</small><div class="qty"><button data-minus="'+p.id+'">−</button><b>'+bag[p.id]+'</b><button data-plus="'+p.id+'">+</button></div></div><b>৳'+(p.price*bag[p.id])+'</b></div>'});$('cartLines').innerHTML=html||'<div class="empty">Your bag is waiting for a little sweetness.</div>';document.querySelectorAll('[data-minus]').forEach(b=>b.onclick=()=>{let id=b.dataset.minus;bag[id]=Math.max(0,(bag[id]||0)-1);if(!bag[id])delete bag[id];saveBag()});document.querySelectorAll('[data-plus]').forEach(b=>b.onclick=()=>{let id=b.dataset.plus;bag[id]=(bag[id]||0)+1;saveBag()})}
+function openCart(){$('overlay').classList.add('open');$('drawer').classList.add('open')}
+function closeCart(){$('overlay').classList.remove('open');$('drawer').classList.remove('open')}
+document.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',()=>{let id=b.dataset.add;bag[id]=(bag[id]||0)+1;saveBag();openCart()}));
+$('openCart').onclick=openCart;$('closeCart').onclick=closeCart;$('overlay').onclick=()=>{closeCart();$('previewModal').classList.remove('open')};$('checkoutBtn').onclick=()=>{$('previewModal').classList.add('open')};$('modalClose').onclick=()=>$('previewModal').classList.remove('open');$('menuToggle').onclick=()=>$('navLinks').classList.toggle('show');$('navLinks').querySelectorAll('a').forEach(a=>a.onclick=()=>$('navLinks').classList.remove('show'));renderBag();
 </script>
-</body>
-</html>
+</body></html>
